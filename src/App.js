@@ -76,6 +76,10 @@ class App extends Component {
       .then(this.handleResponse)
   }
 
+  handleLogout = () => {
+    localStorage.token = ""
+    this.props.history.push("/")
+  }
 
   handleRegister = (userInfo) => {
     fetch("http://localhost:3000/users", {
@@ -124,12 +128,7 @@ class App extends Component {
   }
 
   renderProfile = () => {
-    return <Profile user={this.state.user}/>
-  }
-
-  renderLogout = () => {
-    localStorage.token = ""
-    this.props.history.push("/")
+    {return localStorage.token ? <Profile user={this.state.user} handleLogout={this.handleLogout}/> : this.props.history.push("/login")}
   }
 
   render() { 
@@ -140,8 +139,8 @@ class App extends Component {
         <NavBar token={localStorage.token}/>
         <Route path="/login" render={this.renderLoginForm} />
         <Route path="/register" render={this.renderRegistrationForm}/> 
-        <Route path="/profile" render={this.renderProfile} />
-        <Route path="/logout" render={this.renderLogout} />
+        <Route path="/profile" render={this.renderProfile}/>
+        <Route path="/logout" render={this.handleLogout} />
         <Route path="/critters/bugs" render={this.renderBugsContainer} />
         <Route path="/critters/fish" render={this.renderFishContainer} />
         <Route path="/critters/sea-creatures" render={this.renderSeaCreaturesContainer} />
