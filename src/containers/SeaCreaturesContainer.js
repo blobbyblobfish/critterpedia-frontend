@@ -4,14 +4,18 @@ import SearchFilter from '../components/SearchFilter'
 
 function SeaCreaturesContainer(props) {
 
-    const seaCreatureComponents = props.seaCreatures.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature}/>)
+    const { seaCreatures, userSeaCreatures, searchTerm, handleChange, filterAvailable, filterCaught } = props
+    const seaCreaturesArray = seaCreatures.filter(seaCreature => seaCreature.name.includes(searchTerm))
 
-    return ( 
+    const seaCreatureComponents = seaCreaturesArray.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature} userSeaCreatures={userSeaCreatures} />)
+
+    return (
         <React.Fragment>
-            <SearchFilter searchTerm={props.searchTerm} handleChange={props.handleChange}/>
+            <SearchFilter filterAvailable={filterAvailable} filterCaught={filterCaught} searchTerm={searchTerm} handleChange={handleChange} />
+            <br></br>
             {seaCreatureComponents}
         </React.Fragment>
     )
 }
- 
+
 export default SeaCreaturesContainer

@@ -19,11 +19,13 @@ class App extends Component {
     fish: [],
     seaCreatures: [],
     searchTerm: "",
-    filter: "",
+    filterAvailable: "All",
+    filterCaught: "All",
     user: {
-      id: [],
-      username: [],
-      password: [],
+      id: 0,
+      username: "",
+      password: "",
+      hemisphere: "",
       userCritters: []
     }
   }
@@ -94,12 +96,15 @@ class App extends Component {
   }
 
   handleResponse = (resp) => {
-    console.log(resp)
-
     if (resp.user) {
       localStorage.token = resp.token
-      this.setState(resp, () => {
-        this.props.history.push("/profile")
+
+      this.setState({
+        user: {
+          username: resp.user.username,
+          hemisphere: resp.user.hemisphere,
+          userCritters: resp.user.user_critters
+        }
       })
     }
     else {
@@ -108,15 +113,23 @@ class App extends Component {
   }
 
   renderBugsContainer = () => {
-    return <BugsContainer bugs={this.state.bugs} searchTerm={this.state.searchTerm} handleChange={this.handleChange} />
+    const userBugs = this.state.user.userCritters.filter(critterObj => {return critterObj.critter.category === "bug"})
+    return <BugsContainer bugs={this.state.bugs} userBugs={userBugs}
+      searchTerm={this.state.searchTerm} handleChange={this.handleChange}
+      filterAvailable={this.state.filterAvailable} filterCaught={this.state.filterCaught}
+    />
   }
 
   renderFishContainer = () => {
-    return <FishContainer fish={this.state.fish} searchTerm={this.state.searchTerm} handleChange={this.handleChange} />
+    const userFish = this.state.user.userCritters.filter(critterObj => {return critterObj.critter.category === "fish"})
+    return <FishContainer fish={this.state.fish} userFish={userFish}
+      searchTerm={this.state.searchTerm} handleChange={this.handleChange} />
   }
 
   renderSeaCreaturesContainer = () => {
-    return <SeaCreaturesContainer seaCreatures={this.state.seaCreatures} searchTerm={this.state.searchTerm} handleChange={this.handleChange} />
+    const userSeaCreatures = this.state.user.userCritters.filter(critterObj => {return critterObj.critter.category === "sea_creature"})
+    return <SeaCreaturesContainer seaCreatures={this.state.seaCreatures} userSeaCreatures={userSeaCreatures}
+      searchTerm={this.state.searchTerm} handleChange={this.handleChange} />
   }
 
   renderLoginForm = () => {
@@ -128,12 +141,10 @@ class App extends Component {
   }
 
   renderProfile = () => {
-    {return localStorage.token ? <Profile user={this.state.user} handleLogout={this.handleLogout}/> : this.props.history.push("/login")}
+    return localStorage.token ? <Profile user={this.state.user} handleLogout={this.handleLogout}/> : this.props.history.push("/login")
   }
 
   render() { 
-    console.log(localStorage)
-
     return ( 
       <Container>
         <NavBar token={localStorage.token}/>

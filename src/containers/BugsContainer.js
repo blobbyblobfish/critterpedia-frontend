@@ -4,11 +4,15 @@ import SearchFilter from '../components/SearchFilter'
 
 function BugContainer(props) {
 
-    const bugComponents = props.bugs.map(bug => <Bug key={bug.id} bug={bug}/>)
+    const { bugs, userBugs, searchTerm, handleChange, filterAvailable, filterCaught } = props
+    const bugsArray = bugs.filter(bug => bug.name.includes(searchTerm))
+
+    const bugComponents = bugsArray.map(bug => <Bug key={bug.id} bug={bug} userBugs={userBugs}/>)
 
     return ( 
         <React.Fragment>
-            <SearchFilter searchTerm={props.searchTerm} handleChange={props.handleChange} />
+            <SearchFilter filterAvailable={filterAvailable} filterCaught={filterCaught} searchTerm={searchTerm} handleChange={handleChange} />
+            <br></br>
             {bugComponents}
         </React.Fragment>
     )
