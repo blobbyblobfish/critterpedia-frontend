@@ -75,7 +75,7 @@ class App extends Component {
       body: JSON.stringify(userInfo)
     })
       .then(r => r.json())
-      .then(this.handleResponse)
+      .then(this.handleLoginResponse)
   }
 
   handleLogout = () => {
@@ -105,7 +105,26 @@ class App extends Component {
           hemisphere: resp.user.hemisphere,
           userCritters: resp.user.user_critters
         }
-      })
+      }
+      )
+    }
+    else {
+      alert(resp.error)
+    }
+  }
+
+  handleLoginResponse = (resp) => {
+    if (resp.user) {
+      localStorage.token = resp.token
+
+      this.setState({
+        user: {
+          username: resp.user.username,
+          hemisphere: resp.user.hemisphere,
+          userCritters: resp.user.user_critters
+        }
+      }, () => this.props.history.push("/profile")
+      )
     }
     else {
       alert(resp.error)
