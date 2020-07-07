@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react'
 import SeaCreature from '../components/SeaCreature'
+import SearchFilter from '../components/SearchFilter'
 
-class SeaCreaturesContainer extends Component {
+function SeaCreaturesContainer(props) {
 
-    render() { 
-        return ( 
-            <SeaCreature />
-         )
-    }
+    const seaCreatureComponents = props.seaCreatures.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature}/>)
+
+    return ( 
+        <React.Fragment>
+            <SearchFilter searchTerm={props.searchTerm} handleChange={props.handleChange}/>
+            {seaCreatureComponents}
+        </React.Fragment>
+    )
 }
  
-export default SeaCreaturesContainer;
+export default SeaCreaturesContainer

@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react'
 import Bug from '../components/Bug'
+import SearchFilter from '../components/SearchFilter'
 
-class BugsContainer extends Component {
+function BugContainer(props) {
 
-    render() { 
-        return (
-            <Bug/>
-        )
-    }
+    const bugComponents = props.bugs.map(bug => <Bug key={bug.id} bug={bug}/>)
+
+    return ( 
+        <React.Fragment>
+            <SearchFilter searchTerm={props.searchTerm} handleChange={props.handleChange} />
+            {bugComponents}
+        </React.Fragment>
+    )
 }
  
-export default BugsContainer;
+export default BugContainer

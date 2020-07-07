@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-const Fish = () => {
-    return ( 'Fish' );
+const Fish = (props) => {
+    return (<p>{props.fish.name}</p> )
 }
  
-export default Fish;
+export default Fish

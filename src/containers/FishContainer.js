@@ -1,14 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react'
 import Fish from '../components/Fish'
+import SearchFilter from '../components/SearchFilter'
 
+function FishContainer(props) {
 
-class FishContainer extends Component {
+    const fishComponents = props.fish.map(fish => <Fish key={fish.id} fish={fish}/>)
 
-    render() { 
-        return ( 
-            <Fish />
-         )
-    }
+    return ( 
+        <React.Fragment>
+            <SearchFilter searchTerm={props.searchTerm} handleChange={props.handleChange}/>
+            {fishComponents}
+        </React.Fragment>
+    )
 }
  
-export default FishContainer;
+export default FishContainer

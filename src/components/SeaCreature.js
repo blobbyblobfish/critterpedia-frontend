@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-const SeaCreature = () => {
-    return ( 'Sea creature' );
+const SeaCreature = (props) => {
+    return (<p>{props.seaCreature.name}</p> )
 }
  
-export default SeaCreature;
+export default SeaCreature
