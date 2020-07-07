@@ -1,13 +1,6 @@
-<<<<<<< HEAD
 import React, {Component, Fragment} from 'react';
 import './App.css';
 import {Route} from 'react-router-dom'
-=======
-import React, {Component} from 'react';
-import './App.css';
-import { Container } from 'semantic-ui-react'
->>>>>>> urgen
-
 import BugsContainer from './containers/BugsContainer'
 import FishContainer from './containers/FishContainer'
 import SeaCreaturesContainer from './containers/SeaCreaturesContainer'
@@ -87,7 +80,7 @@ class App extends Component {
 
   render() { 
     return ( 
-<<<<<<< HEAD
+
       <Fragment>
         <NavBar />
         <Route path="/login" render={this.renderLoginForm} />
@@ -99,20 +92,6 @@ class App extends Component {
         
       </Fragment>
      );
-=======
-    <div>
-      <Container>
-        <NavBar />
-        <AccountForm /> 
-        <Profile />
-        <SearchFilter />
-        <BugsContainer />
-        <FishContainer />
-        <SeaCreaturesContainer />
-      </Container>
-    </div>
-     )
->>>>>>> urgen
   }
 }
  
