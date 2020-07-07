@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import { Container } from 'semantic-ui-react'
+import {Route, withRouter} from 'react-router-dom'
 
 import BugsContainer from './containers/BugsContainer'
 import FishContainer from './containers/FishContainer'
@@ -19,10 +20,13 @@ class App extends Component {
     fish: [],
     seaCreatures: [],
     searchTerm: "",
-    username: "",
-    password: "",
-    hemisphere: "",
-    filter: ""
+    filter: "",
+    user: {
+      id: [],
+      username: [],
+      password: [],
+      userCritters: []
+    }
   }
 
   componentDidMount() {
@@ -43,6 +47,16 @@ class App extends Component {
       .then(json => this.setState({
         seaCreatures: json
       }))
+    
+    if (localStorage.token) {
+      fetch("http://localhost:3000/users/stay_logged_in",{
+        headers: {
+          "Authorization": localStorage.token
+        }
+      })
+      .then(resp => resp.json())
+      .then(this.handleResponse)
+      }
   }
 
   handleChange = (e) => {
@@ -51,12 +65,43 @@ class App extends Component {
     })
   }
 
-  handleLogin = () => {
-
+  handleLogin = (userInfo) => {
+    fetch("http://localhost:3000/users/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(userInfo)
+    })
+      .then(r => r.json())
+      .then(this.handleResponse)
   }
 
-  handleRegister = () => {
-    
+
+  handleRegister = (userInfo) => {
+    fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(userInfo)
+    })
+      .then(r => r.json())
+      .then(this.handleResponse)
+  }
+
+  handleResponse = (resp) => {
+    console.log(resp)
+
+    if (resp.user) {
+      localStorage.token = resp.token
+      this.setState(resp, () => {
+        this.props.history.push("/profile")
+      })
+    }
+    else {
+      alert(resp.error)
+    }
   }
 
   renderBugsContainer = () => {
@@ -72,42 +117,40 @@ class App extends Component {
   }
 
   renderLoginForm = () => {
-    return <LoginForm username={this.state.username} password={this.state.password} handleChange={this.handleChange} handleLogin={this.handleLogin} />
+    return <LoginForm handleLogin={this.handleLogin}/>
   }
 
   renderRegistrationForm = () => {
-    return <RegistrationForm username={this.state.username} password={this.state.password} handleChange={this.handleChange} handleRegister={this.handleRegister}/>
+    return <RegistrationForm handleRegister={this.handleRegister}/>
+  }
+
+  renderProfile = () => {
+    return <Profile user={this.state.user}/>
+  }
+
+  renderLogout = () => {
+    localStorage.token = ""
+    this.props.history.push("/")
   }
 
   render() { 
+    console.log(localStorage)
+
     return ( 
-<<<<<<< HEAD
-      <Fragment>
-        <NavBar />
+      <Container>
+        <NavBar token={localStorage.token}/>
         <Route path="/login" render={this.renderLoginForm} />
         <Route path="/register" render={this.renderRegistrationForm}/> 
-        <Route path="/profile" component={Profile} />
+        <Route path="/profile" render={this.renderProfile} />
+        <Route path="/logout" render={this.renderLogout} />
         <Route path="/critters/bugs" render={this.renderBugsContainer} />
         <Route path="/critters/fish" render={this.renderFishContainer} />
         <Route path="/critters/sea-creatures" render={this.renderSeaCreaturesContainer} />
-        
-      </Fragment>
-     );
-=======
-    <div>
-      <Container>
-        <NavBar />
-        <AccountForm /> 
-        <Profile />
-        <SearchFilter />
-        <BugsContainer />
-        <FishContainer />
-        <SeaCreaturesContainer />
       </Container>
-    </div>
-     )
->>>>>>> urgen
+     );
   }
 }
  
-export default App;
+
+const AppWithRouter = withRouter(App)
+export default AppWithRouter;

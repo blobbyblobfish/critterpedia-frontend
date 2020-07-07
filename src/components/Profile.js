@@ -2,8 +2,10 @@ import React from 'react'
 
 function Profile(props) {
 
+    const { username, password, id } = props.user
+
     return (<React.Fragment>
-        <p>{props.username}</p>
+        <p>{username}</p>
     </React.Fragment>)
 }
  
