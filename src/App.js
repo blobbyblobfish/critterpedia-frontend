@@ -1,6 +1,7 @@
-import React, {Component, Fragment} from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import { Container } from 'semantic-ui-react'
+
 import BugsContainer from './containers/BugsContainer'
 import FishContainer from './containers/FishContainer'
 import SeaCreaturesContainer from './containers/SeaCreaturesContainer'
@@ -14,18 +15,18 @@ class App extends Component {
 
   render() { 
     return ( 
-    <Fragment>
-      <NavBar />
-
-      <AccountForm /> 
-      <Profile />
-      <SearchFilter />
-      <BugsContainer />
-      <FishContainer />
-      <SeaCreaturesContainer />
-        
-    </Fragment>
-     );
+    <div>
+      <Container>
+        <NavBar />
+        <AccountForm /> 
+        <Profile />
+        <SearchFilter />
+        <BugsContainer />
+        <FishContainer />
+        <SeaCreaturesContainer />
+      </Container>
+    </div>
+     )
   }
 }
  
