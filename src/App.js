@@ -12,7 +12,6 @@ import Profile from './components/Profile'
 import LoginForm from './components/LoginForm'
 import RegistrationForm from './components/RegistrationForm'
 
-
 class App extends Component {
 
   state = {
