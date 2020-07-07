@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import React, {Component, Fragment} from 'react';
-import './App.css';
-import {Route} from 'react-router-dom'
-=======
 import React, {Component} from 'react';
 import './App.css';
 import { Container } from 'semantic-ui-react'
->>>>>>> urgen
 
 import BugsContainer from './containers/BugsContainer'
 import FishContainer from './containers/FishContainer'

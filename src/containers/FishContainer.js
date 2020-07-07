@@ -14,9 +14,4 @@ function FishContainer(props) {
     )
 }
  
-<<<<<<< HEAD
 export default FishContainer
-=======
-export default FishContainer;
-
->>>>>>> urgen
