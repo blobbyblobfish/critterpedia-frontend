@@ -97,6 +97,19 @@ class App extends Component {
   handleLogout = () => {
     localStorage.token = ""
     this.props.history.push("/")
+
+    this.setState({
+      searchTerm: "",
+      filterAvailable: "All",
+      filterCaught: "All",
+      user: {
+        id: 0,
+        username: "",
+        hemisphere: "",
+        userCritters: []
+      }
+    })
+    
   }
 
   handleRegister = (userInfo) => {
