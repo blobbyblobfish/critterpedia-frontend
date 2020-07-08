@@ -22,37 +22,38 @@ function SeaCreaturesContainer(props) {
             if (filterAvailable === "Available") {
                 if (hemisphere === "nh") {
                     seaCreaturesArray = seaCreaturesArray.filter(seaCreature => seaCreature.nh_available_months.includes(currentMonth) && seaCreature.available_times.includes(currentHour))
-                    return seaCreaturesArray.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                    if (seaCreaturesArray.length > 0) {return seaCreaturesArray.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No sea creatures found!</p>}
                 }
 
                 if (hemisphere === "sh") {
                     seaCreaturesArray = seaCreaturesArray.filter(seaCreature => seaCreature.sh_available_months.includes(currentMonth) && seaCreature.available_times.includes(currentHour))
-                    return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                    if (seaCreaturesArray.length > 0) {return seaCreaturesArray.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No sea creatures found!</p>}
                 }
 
-                else {
-                    return <p>You must register and select a hemisphere</p>
-                }
+                else {return <p>You must register and select a hemisphere</p>}
             }
 
             else if (filterAvailable === "Unavailable") {
                 if (hemisphere === "nh") {
                     seaCreaturesArray = seaCreaturesArray.filter(seaCreature => !seaCreature.nh_available_months.includes(currentMonth) || !seaCreature.available_times.includes(currentHour))
-                    return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                    if (seaCreaturesArray.length > 0) {return seaCreaturesArray.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No sea creatures found!</p>}
                 }
 
                 if (hemisphere === "sh") {
                     seaCreaturesArray = seaCreaturesArray.filter(seaCreature => !seaCreature.sh_available_months.includes(currentMonth) || !seaCreature.available_times.includes(currentHour))
-                    return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                    if (seaCreaturesArray.length > 0) {return seaCreaturesArray.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No sea creatures found!</p>}
                 }
 
-                else {
-                    return <p>You must register and select a hemisphere</p>
-                }
+                else {return <p>You must register and select a hemisphere</p>}
             }
 
             else {
-                return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                if (seaCreaturesArray.length > 0) {return seaCreaturesArray.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                else {return <p>No sea creatures found!</p>}
             }
         }
 
@@ -62,75 +63,77 @@ function SeaCreaturesContainer(props) {
             if (filterAvailable === "Available") {
                 if (hemisphere === "nh") {
                     seaCreaturesArray = seaCreaturesArray.filter(seaCreature => seaCreature.nh_available_months.includes(currentMonth) && seaCreature.available_times.includes(currentHour))
-                    return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                    if (seaCreaturesArray.length > 0) {return seaCreaturesArray.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No sea creatures found!</p>}
                 }
 
                 if (hemisphere === "sh") {
                     seaCreaturesArray = seaCreaturesArray.filter(seaCreature => seaCreature.sh_available_months.includes(currentMonth) && seaCreature.available_times.includes(currentHour))
-                    return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                    if (seaCreaturesArray.length > 0) {return seaCreaturesArray.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No sea creatures found!</p>}
                 }
 
-                else {
-                    return <p>You must register and select a hemisphere</p>
-                }
+                else {return <p>You must register and select a hemisphere</p>}
             }
 
             else if (filterAvailable === "Unavailable") {
                 if (hemisphere === "nh") {
                     seaCreaturesArray = seaCreaturesArray.filter(seaCreature => !seaCreature.nh_available_months.includes(currentMonth) || !seaCreature.available_times.includes(currentHour))
-                    return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                    if (seaCreaturesArray.length > 0) {return seaCreaturesArray.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No sea creatures found!</p>}
                 }
 
                 if (hemisphere === "sh") {
                     seaCreaturesArray = seaCreaturesArray.filter(seaCreature => !seaCreature.sh_available_months.includes(currentMonth) || !seaCreature.available_times.includes(currentHour))
-                    return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                    if (seaCreaturesArray.length > 0) {return seaCreaturesArray.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No sea creatures found!</p>}
                 }
 
-                else {
-                    return <p>You must register and select a hemisphere</p>
-                }
+                else {return <p>You must register and select a hemisphere</p>}
             }
 
             else {
-                return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                if (seaCreaturesArray.length > 0) {return seaCreaturesArray.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                else {return <p>No sea creatures found!</p>}
             }
         }
 
         if (filterAvailable === "Available") {
             if (hemisphere === "nh") {
                 seaCreaturesArray = seaCreaturesArray.filter(seaCreature => seaCreature.nh_available_months.includes(currentMonth) && seaCreature.available_times.includes(currentHour))
-                return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                if (seaCreaturesArray.length > 0) {return seaCreaturesArray.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                else {return <p>No sea creatures found!</p>}
             }
 
             if (hemisphere === "sh") {
                 seaCreaturesArray = seaCreaturesArray.filter(seaCreature => seaCreature.sh_available_months.includes(currentMonth) && seaCreature.available_times.includes(currentHour))
-                return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                if (seaCreaturesArray.length > 0) {return seaCreaturesArray.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                else {return <p>No sea creatures found!</p>}
             }
 
-            else {
-                return <p>You must register and select a hemisphere</p>
-            }
+            else {return <p>You must register and select a hemisphere</p>}
         }
 
         if (filterAvailable === "Unavailable") {
             if (hemisphere === "nh") {
                 seaCreaturesArray = seaCreaturesArray.filter(seaCreature => !seaCreature.nh_available_months.includes(currentMonth) || !seaCreature.available_times.includes(currentHour))
-                return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                if (seaCreaturesArray.length > 0) {return seaCreaturesArray.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                else {return <p>No sea creatures found!</p>}
             }
 
             if (hemisphere === "sh") {
                 seaCreaturesArray = seaCreaturesArray.filter(seaCreature => !seaCreature.sh_available_months.includes(currentMonth) || !seaCreature.available_times.includes(currentHour))
-                return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                if (seaCreaturesArray.length > 0) {return seaCreaturesArray.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                else {return <p>No sea creatures found!</p>}
             }
 
-            else {
-                return <p>You must register and select a hemisphere</p>
-            }
+            else {return <p>You must register and select a hemisphere</p>}
         }
 
 
         if (filterAvailable === "All" && filterCaught === "All") {
-            return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+            if (seaCreaturesArray.length > 0) {return seaCreaturesArray.map(seaCreature => <SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+            else {return <p>No sea creatures found!</p>}
         }
     }
 

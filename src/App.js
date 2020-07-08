@@ -60,11 +60,12 @@ class App extends Component {
   }
 
   handleCatch = (userCritter) => {
-    this.setState((prevState) => {return {
-      user: {
-        userCritters: [...prevState.user.userCritters, userCritter]
-      }
-    }})
+    this.setState((prevState) => {
+      const userCritters = [...prevState.user.userCritters, userCritter]
+      const user = {...prevState.user, userCritters}
+
+      return { user: user }
+    })
   }
 
   handleRelease = (userCritter) => {

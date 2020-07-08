@@ -23,37 +23,38 @@ function FishContainer(props) {
             if (filterAvailable === "Available") {
                 if (hemisphere === "nh") {
                     fishArray = fishArray.filter(fish => fish.nh_available_months.includes(currentMonth) && fish.available_times.includes(currentHour))
-                    return fishArray.map(fish => <Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                    if (fishArray.length > 0) {return fishArray.map(fish => <Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No fish found!</p>}
                 }
 
                 if (hemisphere === "sh") {
                     fishArray = fishArray.filter(fish => fish.sh_available_months.includes(currentMonth) && fish.available_times.includes(currentHour))
-                    return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
+                    if (fishArray.length > 0) {return fishArray.map(fish => <Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No fish found!</p>}
                 }
 
-                else {
-                    return <p>You must register and select a hemisphere</p>
-                }
+                else {return <p>You must register and select a hemisphere</p>}
             }
 
             else if (filterAvailable === "Unavailable") {
                 if (hemisphere === "nh") {
                     fishArray = fishArray.filter(fish => !fish.nh_available_months.includes(currentMonth) || !fish.available_times.includes(currentHour))
-                    return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
+                    if (fishArray.length > 0) {return fishArray.map(fish => <Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No fish found!</p>}
                 }
 
                 if (hemisphere === "sh") {
                     fishArray = fishArray.filter(fish => !fish.sh_available_months.includes(currentMonth) || !fish.available_times.includes(currentHour))
-                    return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
+                    if (fishArray.length > 0) {return fishArray.map(fish => <Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No fish found!</p>}
                 }
 
-                else {
-                    return <p>You must register and select a hemisphere</p>
-                }
+                else {return <p>You must register and select a hemisphere</p>}
             }
 
             else {
-                return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
+                if (fishArray.length > 0) {return fishArray.map(fish => <Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                else {return <p>No fish found!</p>}
             }
         }
 
@@ -63,76 +64,77 @@ function FishContainer(props) {
             if (filterAvailable === "Available") {
                 if (hemisphere === "nh") {
                     fishArray = fishArray.filter(fish => fish.nh_available_months.includes(currentMonth) && fish.available_times.includes(currentHour))
-                    return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
+                    if (fishArray.length > 0) {return fishArray.map(fish => <Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No fish found!</p>}
                 }
 
                 if (hemisphere === "sh") {
                     fishArray = fishArray.filter(fish => fish.sh_available_months.includes(currentMonth) && fish.available_times.includes(currentHour))
-                    return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
+                    if (fishArray.length > 0) {return fishArray.map(fish => <Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No fish found!</p>}
                 }
 
-                else {
-                    return <p>You must register and select a hemisphere</p>
-                }
+                else {return <p>You must register and select a hemisphere</p>}
             }
 
             else if (filterAvailable === "Unavailable") {
                 if (hemisphere === "nh") {
                     fishArray = fishArray.filter(fish => !fish.nh_available_months.includes(currentMonth) || !fish.available_times.includes(currentHour))
-                    return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
+                    if (fishArray.length > 0) {return fishArray.map(fish => <Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No fish found!</p>}
                 }
 
                 if (hemisphere === "sh") {
                     fishArray = fishArray.filter(fish => !fish.sh_available_months.includes(currentMonth) || !fish.available_times.includes(currentHour))
-                    return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
+                    if (fishArray.length > 0) {return fishArray.map(fish => <Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No fish found!</p>}
                 }
 
-                else {
-                    return <p>You must register and select a hemisphere</p>
-                }
+                else {return <p>You must register and select a hemisphere</p>}
             }
 
             else {
-                return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
+                    if (fishArray.length > 0) {return fishArray.map(fish => <Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No fish found!</p>}
             }
         }
 
         if (filterAvailable === "Available") {
             if (hemisphere === "nh") {
                 fishArray = fishArray.filter(fish => fish.nh_available_months.includes(currentMonth) && fish.available_times.includes(currentHour))
-                return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
+                    if (fishArray.length > 0) {return fishArray.map(fish => <Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No fish found!</p>}
             }
 
             if (hemisphere === "sh") {
                 fishArray = fishArray.filter(fish => fish.sh_available_months.includes(currentMonth) && fish.available_times.includes(currentHour))
-                return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
+                    if (fishArray.length > 0) {return fishArray.map(fish => <Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No fish found!</p>}
             }
 
-            else {
-                return <p>You must register and select a hemisphere</p>
-            }
+            else {return <p>You must register and select a hemisphere</p>}
         }
 
         if (filterAvailable === "Unavailable") {
             if (hemisphere === "nh") {
                 fishArray = fishArray.filter(fish => !fish.nh_available_months.includes(currentMonth) || !fish.available_times.includes(currentHour))
-                return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
+                    if (fishArray.length > 0) {return fishArray.map(fish => <Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No fish found!</p>}
             }
 
             if (hemisphere === "sh") {
                 fishArray = fishArray.filter(fish => !fish.sh_available_months.includes(currentMonth) || !fish.available_times.includes(currentHour))
-                return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
+                    if (fishArray.length > 0) {return fishArray.map(fish => <Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+                    else {return <p>No fish found!</p>}
             }
 
-            else {
-                return <p>You must register and select a hemisphere</p>
-            }
+            else {return <p>You must register and select a hemisphere</p>}
         }
 
 
         if (filterAvailable === "All" && filterCaught === "All") {
-            return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
-        }
+            if (fishArray.length > 0) {return fishArray.map(fish => <Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease}/>)}
+            else {return <p>No fish found!</p>}}
     }
 
     return ( 

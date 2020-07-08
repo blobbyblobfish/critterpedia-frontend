@@ -22,37 +22,38 @@ function BugContainer(props) {
             if (filterAvailable === "Available") {
                 if (hemisphere === "nh") {
                     bugsArray = bugsArray.filter(bug => bug.nh_available_months.includes(currentMonth) && bug.available_times.includes(currentHour))
-                    return bugsArray.map(bug => <Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                    if (bugsArray.length > 0 ) {return bugsArray.map(bug => <Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease} />)}
+                    else {return <p>No bugs found</p>}
                 }
 
                 if (hemisphere === "sh") {
                     bugsArray = bugsArray.filter(bug => bug.sh_available_months.includes(currentMonth) && bug.available_times.includes(currentHour))
-                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                    if (bugsArray.length > 0 ) {return bugsArray.map(bug => <Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease} />)}
+                    else {return <p>No bugs found</p>}
                 }
                 
-                else {
-                    return <p>You must register and select a hemisphere</p>
-                }
+                else {return <p>You must register and select a hemisphere</p>}
             }
 
             else if (filterAvailable === "Unavailable") {
                 if (hemisphere === "nh") {
                     bugsArray = bugsArray.filter(bug => !bug.nh_available_months.includes(currentMonth) || !bug.available_times.includes(currentHour))
-                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                    if (bugsArray.length > 0 ) {return bugsArray.map(bug => <Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease} />)}
+                    else {return <p>No bugs found</p>}
                 }
 
                 if (hemisphere === "sh") {
                     bugsArray = bugsArray.filter(bug => !bug.sh_available_months.includes(currentMonth) || !bug.available_times.includes(currentHour))
-                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                    if (bugsArray.length > 0 ) {return bugsArray.map(bug => <Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease} />)}
+                    else {return <p>No bugs found</p>}
                 }
 
-                else {
-                    return <p>You must register and select a hemisphere</p>
-                }
+                else {return <p>You must register and select a hemisphere</p>}
             }
 
             else {
-                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                if (bugsArray.length > 0 ) {return bugsArray.map(bug => <Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease} />)}
+                    else {return <p>No bugs found</p>}
             }
         }
 
@@ -62,75 +63,77 @@ function BugContainer(props) {
             if (filterAvailable === "Available") {
                 if (hemisphere === "nh") {
                     bugsArray = bugsArray.filter(bug => bug.nh_available_months.includes(currentMonth) && bug.available_times.includes(currentHour))
-                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                    if (bugsArray.length > 0 ) {return bugsArray.map(bug => <Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease} />)}
+                    else {return <p>No bugs found</p>}
                 }
 
                 if (hemisphere === "sh") {
                     bugsArray = bugsArray.filter(bug => bug.sh_available_months.includes(currentMonth) && bug.available_times.includes(currentHour))
-                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                    if (bugsArray.length > 0 ) {return bugsArray.map(bug => <Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease} />)}
+                    else {return <p>No bugs found</p>}
                 }
 
-                else {
-                    return <p>You must register and select a hemisphere</p>
-                }
+                else {return <p>You must register and select a hemisphere</p>}
             }
 
             else if (filterAvailable === "Unavailable") {
                 if (hemisphere === "nh") {
                     bugsArray = bugsArray.filter(bug => !bug.nh_available_months.includes(currentMonth) || !bug.available_times.includes(currentHour))
-                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                    if (bugsArray.length > 0 ) {return bugsArray.map(bug => <Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease} />)}
+                    else {return <p>No bugs found</p>}
                 }
 
                 if (hemisphere === "sh") {
                     bugsArray = bugsArray.filter(bug => !bug.sh_available_months.includes(currentMonth) || !bug.available_times.includes(currentHour))
-                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                    if (bugsArray.length > 0 ) {return bugsArray.map(bug => <Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease} />)}
+                    else {return <p>No bugs found</p>}
                 }
 
-                else {
-                    return <p>You must register and select a hemisphere</p>
-                }
+                else {return <p>You must register and select a hemisphere</p>}
             }
 
             else {
-                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                if (bugsArray.length > 0 ) {return bugsArray.map(bug => <Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease} />)}
+                    else {return <p>No bugs found</p>}
             }
         }
 
         if (filterAvailable === "Available") {
             if (hemisphere === "nh") {
                 bugsArray = bugsArray.filter(bug => bug.nh_available_months.includes(currentMonth) && bug.available_times.includes(currentHour))
-                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                if (bugsArray.length > 0 ) {return bugsArray.map(bug => <Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease} />)}
+                    else {return <p>No bugs found</p>}
             }
 
             if (hemisphere === "sh") {
                 bugsArray = bugsArray.filter(bug => bug.sh_available_months.includes(currentMonth) && bug.available_times.includes(currentHour))
-                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                if (bugsArray.length > 0 ) {return bugsArray.map(bug => <Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease} />)}
+                    else {return <p>No bugs found</p>}
             }
 
-            else {
-                return <p>You must register and select a hemisphere</p>
-            }
+            else {return <p>You must register and select a hemisphere</p>}
         }
 
         if (filterAvailable === "Unavailable") {
             if (hemisphere === "nh") {
                 bugsArray = bugsArray.filter(bug => !bug.nh_available_months.includes(currentMonth) || !bug.available_times.includes(currentHour))
-                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                if (bugsArray.length > 0 ) {return bugsArray.map(bug => <Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease} />)}
+                    else {return <p>No bugs found</p>}
             }
 
             if (hemisphere === "sh") {
                 bugsArray = bugsArray.filter(bug => !bug.sh_available_months.includes(currentMonth) || !bug.available_times.includes(currentHour))
-                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                if (bugsArray.length > 0 ) {return bugsArray.map(bug => <Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease} />)}
+                    else {return <p>No bugs found</p>}
             }
 
-            else {
-                return <p>You must register and select a hemisphere</p>
-            }
+            else {return <p>You must register and select a hemisphere</p>}
         }
 
 
         if (filterAvailable === "All" && filterCaught === "All") {
-            return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+            if (bugsArray.length > 0 ) {return bugsArray.map(bug => <Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease} />)}
+            else {return <p>No bugs found</p>}
         }
     }
 
