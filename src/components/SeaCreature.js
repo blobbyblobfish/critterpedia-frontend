@@ -3,7 +3,7 @@ import { Container } from 'semantic-ui-react'
 
 const SeaCreature = (props) => {
     const { userSeaCreatures, seaCreature, handleCatch, handleRelease, userId } = props
-    const userSeaCreature = userSeaCreatures.filter(critterObj => {return critterObj.critter.name === seaCreature.name})
+    const userSeaCreature = userSeaCreatures.filter(critterObj => {return critterObj.critter.name === seaCreature.name})[0]
     
     function handleClickCatch() {
         const newUserCritter = {
@@ -26,15 +26,22 @@ const SeaCreature = (props) => {
     }
 
     function handleClickRelease() {
-        fetch(`http://localhost:3000/user-critters/${userSeaCreature[0].id}`, { method: "DELETE" })
+        fetch(`http://localhost:3000/user-critters/${userSeaCreature.id}`, { method: "DELETE" })
             .then(resp => resp.json())
             .then(json => handleRelease(json))
+    }
+
+    function renderButtons() {
+        if (localStorage.token) {
+            if (!userSeaCreature) { return <button onClick={handleClickCatch}>Catch</button> }
+            else { return <button onClick={handleClickRelease}>Release</button> }
+        }
     }
 
     return (<div className="critter">
         <img src={seaCreature.img_url} alt={seaCreature.name}/>
         <p>{seaCreature.name}</p>
-        {userSeaCreature.length === 0 ? <button onClick={handleClickCatch}>Catch</button> : <button onClick={handleClickRelease}>Release</button>}
+        {renderButtons()}
     </div> )
 }
  

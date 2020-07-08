@@ -18,6 +18,8 @@ function FishContainer(props) {
         if (filterCaught === "Caught") {
             fishArray = userFish.map(critterObj => critterObj.critter).filter(fish => fish.name.includes(searchTerm))
 
+            if (!localStorage.token) {return <p>You must login or create an account</p>}
+
             if (filterAvailable === "Available") {
                 if (hemisphere === "nh") {
                     fishArray = fishArray.filter(fish => fish.nh_available_months.includes(currentMonth) && fish.available_times.includes(currentHour))
@@ -27,6 +29,10 @@ function FishContainer(props) {
                 if (hemisphere === "sh") {
                     fishArray = fishArray.filter(fish => fish.sh_available_months.includes(currentMonth) && fish.available_times.includes(currentHour))
                     return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
+                }
+
+                else {
+                    return <p>You must register and select a hemisphere</p>
                 }
             }
 
@@ -39,6 +45,10 @@ function FishContainer(props) {
                 if (hemisphere === "sh") {
                     fishArray = fishArray.filter(fish => !fish.sh_available_months.includes(currentMonth) || !fish.available_times.includes(currentHour))
                     return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
+                }
+
+                else {
+                    return <p>You must register and select a hemisphere</p>
                 }
             }
 
@@ -60,6 +70,10 @@ function FishContainer(props) {
                     fishArray = fishArray.filter(fish => fish.sh_available_months.includes(currentMonth) && fish.available_times.includes(currentHour))
                     return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
                 }
+
+                else {
+                    return <p>You must register and select a hemisphere</p>
+                }
             }
 
             else if (filterAvailable === "Unavailable") {
@@ -71,6 +85,10 @@ function FishContainer(props) {
                 if (hemisphere === "sh") {
                     fishArray = fishArray.filter(fish => !fish.sh_available_months.includes(currentMonth) || !fish.available_times.includes(currentHour))
                     return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
+                }
+
+                else {
+                    return <p>You must register and select a hemisphere</p>
                 }
             }
 
@@ -89,6 +107,10 @@ function FishContainer(props) {
                 fishArray = fishArray.filter(fish => fish.sh_available_months.includes(currentMonth) && fish.available_times.includes(currentHour))
                 return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
             }
+
+            else {
+                return <p>You must register and select a hemisphere</p>
+            }
         }
 
         if (filterAvailable === "Unavailable") {
@@ -100,6 +122,10 @@ function FishContainer(props) {
             if (hemisphere === "sh") {
                 fishArray = fishArray.filter(fish => !fish.sh_available_months.includes(currentMonth) || !fish.available_times.includes(currentHour))
                 return fishArray.map(fish =><Fish key={fish.id} fish={fish} userId={userId} userFishes={userFish} handleCatch={handleCatch} handleRelease={handleRelease} />)
+            }
+
+            else {
+                return <p>You must register and select a hemisphere</p>
             }
         }
 

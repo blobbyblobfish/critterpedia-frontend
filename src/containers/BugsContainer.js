@@ -17,6 +17,8 @@ function BugContainer(props) {
         if (filterCaught === "Caught") {
             bugsArray = userBugs.map(critterObj => critterObj.critter).filter(bug => bug.name.includes(searchTerm))
 
+            if (!localStorage.token) {return <p>You must login or create an account</p>}
+
             if (filterAvailable === "Available") {
                 if (hemisphere === "nh") {
                     bugsArray = bugsArray.filter(bug => bug.nh_available_months.includes(currentMonth) && bug.available_times.includes(currentHour))
@@ -26,6 +28,10 @@ function BugContainer(props) {
                 if (hemisphere === "sh") {
                     bugsArray = bugsArray.filter(bug => bug.sh_available_months.includes(currentMonth) && bug.available_times.includes(currentHour))
                     return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                }
+                
+                else {
+                    return <p>You must register and select a hemisphere</p>
                 }
             }
 
@@ -38,6 +44,10 @@ function BugContainer(props) {
                 if (hemisphere === "sh") {
                     bugsArray = bugsArray.filter(bug => !bug.sh_available_months.includes(currentMonth) || !bug.available_times.includes(currentHour))
                     return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                }
+
+                else {
+                    return <p>You must register and select a hemisphere</p>
                 }
             }
 
@@ -59,6 +69,10 @@ function BugContainer(props) {
                     bugsArray = bugsArray.filter(bug => bug.sh_available_months.includes(currentMonth) && bug.available_times.includes(currentHour))
                     return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
                 }
+
+                else {
+                    return <p>You must register and select a hemisphere</p>
+                }
             }
 
             else if (filterAvailable === "Unavailable") {
@@ -70,6 +84,10 @@ function BugContainer(props) {
                 if (hemisphere === "sh") {
                     bugsArray = bugsArray.filter(bug => !bug.sh_available_months.includes(currentMonth) || !bug.available_times.includes(currentHour))
                     return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                }
+
+                else {
+                    return <p>You must register and select a hemisphere</p>
                 }
             }
 
@@ -88,6 +106,10 @@ function BugContainer(props) {
                 bugsArray = bugsArray.filter(bug => bug.sh_available_months.includes(currentMonth) && bug.available_times.includes(currentHour))
                 return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
             }
+
+            else {
+                return <p>You must register and select a hemisphere</p>
+            }
         }
 
         if (filterAvailable === "Unavailable") {
@@ -99,6 +121,10 @@ function BugContainer(props) {
             if (hemisphere === "sh") {
                 bugsArray = bugsArray.filter(bug => !bug.sh_available_months.includes(currentMonth) || !bug.available_times.includes(currentHour))
                 return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+            }
+
+            else {
+                return <p>You must register and select a hemisphere</p>
             }
         }
 

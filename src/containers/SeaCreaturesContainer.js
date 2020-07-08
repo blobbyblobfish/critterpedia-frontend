@@ -17,6 +17,8 @@ function SeaCreaturesContainer(props) {
         if (filterCaught === "Caught") {
             seaCreaturesArray = userSeaCreatures.map(critterObj => critterObj.critter).filter(seaCreature => seaCreature.name.includes(searchTerm))
 
+            if (!localStorage.token) {return <p>You must login or create an account</p>}
+
             if (filterAvailable === "Available") {
                 if (hemisphere === "nh") {
                     seaCreaturesArray = seaCreaturesArray.filter(seaCreature => seaCreature.nh_available_months.includes(currentMonth) && seaCreature.available_times.includes(currentHour))
@@ -26,6 +28,10 @@ function SeaCreaturesContainer(props) {
                 if (hemisphere === "sh") {
                     seaCreaturesArray = seaCreaturesArray.filter(seaCreature => seaCreature.sh_available_months.includes(currentMonth) && seaCreature.available_times.includes(currentHour))
                     return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                }
+
+                else {
+                    return <p>You must register and select a hemisphere</p>
                 }
             }
 
@@ -38,6 +44,10 @@ function SeaCreaturesContainer(props) {
                 if (hemisphere === "sh") {
                     seaCreaturesArray = seaCreaturesArray.filter(seaCreature => !seaCreature.sh_available_months.includes(currentMonth) || !seaCreature.available_times.includes(currentHour))
                     return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                }
+
+                else {
+                    return <p>You must register and select a hemisphere</p>
                 }
             }
 
@@ -59,6 +69,10 @@ function SeaCreaturesContainer(props) {
                     seaCreaturesArray = seaCreaturesArray.filter(seaCreature => seaCreature.sh_available_months.includes(currentMonth) && seaCreature.available_times.includes(currentHour))
                     return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
                 }
+
+                else {
+                    return <p>You must register and select a hemisphere</p>
+                }
             }
 
             else if (filterAvailable === "Unavailable") {
@@ -70,6 +84,10 @@ function SeaCreaturesContainer(props) {
                 if (hemisphere === "sh") {
                     seaCreaturesArray = seaCreaturesArray.filter(seaCreature => !seaCreature.sh_available_months.includes(currentMonth) || !seaCreature.available_times.includes(currentHour))
                     return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+                }
+
+                else {
+                    return <p>You must register and select a hemisphere</p>
                 }
             }
 
@@ -88,6 +106,10 @@ function SeaCreaturesContainer(props) {
                 seaCreaturesArray = seaCreaturesArray.filter(seaCreature => seaCreature.sh_available_months.includes(currentMonth) && seaCreature.available_times.includes(currentHour))
                 return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
             }
+
+            else {
+                return <p>You must register and select a hemisphere</p>
+            }
         }
 
         if (filterAvailable === "Unavailable") {
@@ -99,6 +121,10 @@ function SeaCreaturesContainer(props) {
             if (hemisphere === "sh") {
                 seaCreaturesArray = seaCreaturesArray.filter(seaCreature => !seaCreature.sh_available_months.includes(currentMonth) || !seaCreature.available_times.includes(currentHour))
                 return seaCreaturesArray.map(seaCreature =><SeaCreature key={seaCreature.id} seaCreature={seaCreature} userId={userId} userSeaCreatures={userSeaCreatures} handleCatch={handleCatch} handleRelease={handleRelease}/>)
+            }
+
+            else {
+                return <p>You must register and select a hemisphere</p>
             }
         }
 

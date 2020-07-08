@@ -3,7 +3,7 @@ import React from 'react'
 const Bug = (props) => {
 
     const { userBugs, bug, handleCatch, handleRelease, userId } = props
-    const userBug = userBugs.filter(critterObj => { return critterObj.critter.name === bug.name })
+    const userBug = userBugs.filter(critterObj => { return critterObj.critter.name === bug.name })[0]
     
     function handleClickCatch() {
         const newUserCritter = {
@@ -26,15 +26,22 @@ const Bug = (props) => {
     }
 
     function handleClickRelease() {
-        fetch(`http://localhost:3000/user-critters/${userBug[0].id}`, { method: "DELETE" })
+        fetch(`http://localhost:3000/user-critters/${userBug.id}`, { method: "DELETE" })
             .then(resp => resp.json())
             .then(json => handleRelease(json))
+    }
+
+    function renderButtons() {
+        if (localStorage.token) {
+            if (!userBug) { return <button onClick={handleClickCatch}>Catch</button> }
+            else { return <button onClick={handleClickRelease}>Release</button> }
+        }
     }
 
     return (<div className="critter">
         <img src={bug.img_url} alt={bug.name}/>
         <p>{bug.name}</p>
-        {userBug.length === 0 ? <button onClick={handleClickCatch}>Catch</button> : <button onClick={handleClickRelease}>Release</button>}
+        {renderButtons()}
     </div> )
 }
  
