@@ -1,10 +1,10 @@
 import React from 'react'
 
 const Fish = (props) => {
-    const { userFishes, fish, handleCatch, userId } = props
+    const { userFishes, fish, handleCatch, handleRelease, userId } = props
     const userFish = userFishes.filter(critterObj => { return critterObj.critter.name === fish.name })
     
-    function handleClick() {
+    function handleClickCatch() {
         const newUserCritter = {
             user_id: userId,
             critter_id: fish.id
@@ -24,10 +24,16 @@ const Fish = (props) => {
             .then(json => handleCatch(json))
     }
 
+    function handleClickRelease() {
+        fetch(`http://localhost:3000/user-critters/${userFish[0].id}`, { method: "DELETE" })
+            .then(resp => resp.json())
+            .then(json => handleRelease(json))
+    }
+
     return (<div className="critter">
         <img src={fish.img_url} alt={fish.name}/>
         <p>{fish.name}</p>
-        {userFish.length === 0 ? <button onClick={handleClick}>Catch</button> : <p>Caught!</p>}
+        {userFish.length === 0 ? <button onClick={handleClickCatch}>Catch</button> : <button onClick={handleClickRelease}>Release</button>}
     </div> )
 }
  
