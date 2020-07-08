@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Container } from 'semantic-ui-react'
 
 function Profile(props) {
 
-    const { handleUpdateUser, handleLogout } = props
+    const { handlePatchUser, handleLogout } = props
     const { username, hemisphere, id } = props.user
+
+    const userHemisphere = hemisphere === "nh" ? "Northern" : "Southern"
+
+    const [newUsername, setNewUsername] = useState(`${username}`)
+    const [newHemisphere, setNewHemisphere] = useState("")
+
+    useEffect(() => {
+        setNewUsername(username)
+    }, [username])
+
+    useEffect(() => {
+        setNewHemisphere(hemisphere)
+    }, [hemisphere])
 
     function handleDelete() {
         fetch(`http://localhost:3000/users/${id}`, {method: "DELETE"})
@@ -21,18 +34,20 @@ function Profile(props) {
                 "authorization": localStorage.token
             },
             body: JSON.stringify({
-                username: username,
-                hemisphere: hemisphere
+                username: newUsername,
+                hemisphere: newHemisphere
             })
         }
         
         fetch(`http://localhost:3000/users/${id}`, configObj)
-            .then(console.log("fetched"))
+            .then(resp => resp.json())
+            .then(json => handlePatchUser(json))
     }
 
     return (
     <React.Fragment>
         <h4>{`Welcome, ${username}`}</h4>
+        <p>{`You are in the ${userHemisphere} Hemisphere`}</p>
         <h1>Stats: </h1>
             <p>Bugs caught: </p>
             <p>Fish caught: </p>
@@ -40,11 +55,12 @@ function Profile(props) {
         <h1>Update Account: </h1>
         <form onSubmit={handleSubmit}>
             <label htmlFor="username">Username</label>
-            <input id="username" type="text" value={username} onChange={handleUpdateUser} />
-            <input name="hemisphere" value="nh" onChange={handleUpdateUser} id="nh" type="radio" checked={hemisphere === "nh"}/>
+            <input name="username" value={newUsername} onChange={(evt) => setNewUsername(evt.target.value)} id="username" type="text"/>
+                
+            <input name="hemisphere" value="nh" onChange={(evt) => setNewHemisphere(evt.target.value)} id="nh" type="radio" checked={newHemisphere === "nh"}/>
             <label htmlFor="nh">Northern Hemisphere</label>
 
-            <input name="hemisphere" value="sh" onChange={handleUpdateUser} id="sh" type="radio" checked={hemisphere === "sh"}/>
+            <input name="hemisphere" value="sh" onChange={(evt) => setNewHemisphere(evt.target.value)} id="sh" type="radio" checked={newHemisphere === "sh"}/>
             <label htmlFor="sh">Southern Hemisphere</label>
             <input type="submit" value="Update Account"/>
         </form>  
