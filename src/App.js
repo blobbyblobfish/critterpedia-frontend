@@ -98,18 +98,7 @@ class App extends Component {
     localStorage.token = ""
     this.props.history.push("/")
 
-    this.setState({
-      searchTerm: "",
-      filterAvailable: "All",
-      filterCaught: "All",
-      user: {
-        id: 0,
-        username: "",
-        hemisphere: "",
-        userCritters: []
-      }
-    })
-    
+    if (this.props.history.location.pathname === "/") {window.location.reload(true)}
   }
 
   handleRegister = (userInfo) => {
@@ -216,8 +205,8 @@ class App extends Component {
       <Container>
         <NavBar token={localStorage.token}/>
         <Route path="/login" render={this.renderLoginForm} />
-        <Route path="/register" render={this.renderRegistrationForm}/> 
-        <Route path="/profile" render={this.renderProfile}/>
+        <Route path="/register" render={this.renderRegistrationForm} /> 
+        <Route path="/profile" render={this.renderProfile} />
         <Route path="/logout" render={this.handleLogout} />
         <Route path="/critters/bugs" render={this.renderBugsContainer} />
         <Route path="/critters/fish" render={this.renderFishContainer} />
