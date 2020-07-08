@@ -60,6 +60,14 @@ class App extends Component {
       }
   }
 
+  handleCatch = (userCritter) => {
+    this.setState((prevState) => {return {
+      user: {
+        userCritters: [...prevState.user.userCritters, userCritter]
+      }
+    }})
+  }
+
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
@@ -135,6 +143,8 @@ class App extends Component {
     const userBugs = this.state.user.userCritters.filter(critterObj => {return critterObj.critter.category === "bug"})
     return <BugsContainer bugs={this.state.bugs} userBugs={userBugs}
       searchTerm={this.state.searchTerm} handleChange={this.handleChange}
+      userId={this.state.user.id} handleCatch={this.handleCatch}
+      hemisphere={this.state.user.hemisphere}
       filterAvailable={this.state.filterAvailable} filterCaught={this.state.filterCaught}
     />
   }
@@ -142,13 +152,21 @@ class App extends Component {
   renderFishContainer = () => {
     const userFish = this.state.user.userCritters.filter(critterObj => {return critterObj.critter.category === "fish"})
     return <FishContainer fish={this.state.fish} userFish={userFish}
-      searchTerm={this.state.searchTerm} handleChange={this.handleChange} />
+      searchTerm={this.state.searchTerm} handleChange={this.handleChange} 
+      userId={this.state.user.id} handleCatch={this.handleCatch}
+      hemisphere={this.state.user.hemisphere}
+      filterAvailable={this.state.filterAvailable} filterCaught={this.state.filterCaught}
+    />
   }
 
   renderSeaCreaturesContainer = () => {
     const userSeaCreatures = this.state.user.userCritters.filter(critterObj => {return critterObj.critter.category === "sea_creature"})
     return <SeaCreaturesContainer seaCreatures={this.state.seaCreatures} userSeaCreatures={userSeaCreatures}
-      searchTerm={this.state.searchTerm} handleChange={this.handleChange} />
+      searchTerm={this.state.searchTerm} handleChange={this.handleChange} 
+      userId={this.state.user.id} handleCatch={this.handleCatch}
+      hemisphere={this.state.user.hemisphere}
+      filterAvailable={this.state.filterAvailable} filterCaught={this.state.filterCaught}
+    />
   }
 
   renderLoginForm = () => {
