@@ -13,10 +13,10 @@ function FishContainer(props) {
 
     function fishComponents() {
         const userFishNames = userFish.map(critterObj => critterObj.critter.name)
-        let fishArray = fish.filter(fish => fish.name.includes(searchTerm))
+        let fishArray = fish.filter(fish => fish.name.startsWith(searchTerm))
 
         if (filterCaught === "Caught") {
-            fishArray = userFish.map(critterObj => critterObj.critter).filter(fish => fish.name.includes(searchTerm))
+            fishArray = userFish.map(critterObj => critterObj.critter).filter(fish => fish.name.startsWith(searchTerm))
 
             if (!localStorage.token) {return <p>You must login or create an account</p>}
 

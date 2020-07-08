@@ -12,10 +12,10 @@ function SeaCreaturesContainer(props) {
 
     function seaCreatureComponents() {
         const userSeaCreatureNames = userSeaCreatures.map(critterObj => critterObj.critter.name)
-        let seaCreaturesArray = seaCreatures.filter(seaCreature => seaCreature.name.includes(searchTerm))
+        let seaCreaturesArray = seaCreatures.filter(seaCreature => seaCreature.name.startsWith(searchTerm))
 
         if (filterCaught === "Caught") {
-            seaCreaturesArray = userSeaCreatures.map(critterObj => critterObj.critter).filter(seaCreature => seaCreature.name.includes(searchTerm))
+            seaCreaturesArray = userSeaCreatures.map(critterObj => critterObj.critter).filter(seaCreature => seaCreature.name.startsWith(searchTerm))
 
             if (!localStorage.token) {return <p>You must login or create an account</p>}
 

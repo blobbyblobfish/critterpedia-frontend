@@ -12,10 +12,10 @@ function BugContainer(props) {
 
     function bugComponents() {
         const userBugNames = userBugs.map(critterObj => critterObj.critter.name)
-        let bugsArray = bugs.filter(bug => bug.name.includes(searchTerm))
+        let bugsArray = bugs.filter(bug => bug.name.startsWith(searchTerm))
 
         if (filterCaught === "Caught") {
-            bugsArray = userBugs.map(critterObj => critterObj.critter).filter(bug => bug.name.includes(searchTerm))
+            bugsArray = userBugs.map(critterObj => critterObj.critter).filter(bug => bug.name.startsWith(searchTerm))
 
             if (!localStorage.token) {return <p>You must login or create an account</p>}
 
