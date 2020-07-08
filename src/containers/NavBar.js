@@ -1,16 +1,19 @@
 import React from 'react'
+import '../App.css';
 import {NavLink} from 'react-router-dom'
 
 function NavBar() {
 
     return (
-        <div className="navbar">
-            <NavLink to="/critters/fish">Fish</NavLink>
-            <NavLink to="/critters/bugs">Bugs</NavLink>
-            <NavLink to="/critters/sea-creatures">Sea Creatures</NavLink>
-            <NavLink to="/profile">Profile</NavLink>
-            <NavLink to="/login">Login</NavLink>
-            <NavLink to="/register">Register</NavLink>
+        <div className="navbar" >
+            <ul>
+                <NavLink href="#" to="/profile">Profile</NavLink>
+                <NavLink href="#" to="/critters/fish">Fish</NavLink> 
+                <NavLink href="#" to="/critters/bugs">Bugs</NavLink>
+                <NavLink href="#" to="/critters/sea-creatures">Sea Creatures</NavLink>
+                <NavLink href="#" to="/login">Login</NavLink>
+                <NavLink href="#" to="/register">Register</NavLink>
+            </ul> 
         </div>
     )
 }

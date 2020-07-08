@@ -1,10 +1,14 @@
 import React from 'react'
+import { Container } from 'semantic-ui-react'
 
 function Profile(props) {
-
-    return (<React.Fragment>
+    return (
+    <Container>
+    {/* <React.Fragment> */}
         <p>{props.username}</p>
-    </React.Fragment>)
+    {/* </React.Fragment> */}
+    </Container>
+    )
 }
  
 export default Profile

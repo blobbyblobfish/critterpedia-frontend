@@ -1,12 +1,7 @@
-<<<<<<< HEAD
 import React, {Component, Fragment} from 'react';
 import './App.css';
 import {Route} from 'react-router-dom'
-=======
-import React, {Component} from 'react';
-import './App.css';
 import { Container } from 'semantic-ui-react'
->>>>>>> urgen
 
 import BugsContainer from './containers/BugsContainer'
 import FishContainer from './containers/FishContainer'
@@ -87,32 +82,18 @@ class App extends Component {
 
   render() { 
     return ( 
-<<<<<<< HEAD
-      <Fragment>
-        <NavBar />
-        <Route path="/login" render={this.renderLoginForm} />
-        <Route path="/register" render={this.renderRegistrationForm}/> 
-        <Route path="/profile" component={Profile} />
-        <Route path="/critters/bugs" render={this.renderBugsContainer} />
-        <Route path="/critters/fish" render={this.renderFishContainer} />
-        <Route path="/critters/sea-creatures" render={this.renderSeaCreaturesContainer} />
-        
-      </Fragment>
-     );
-=======
-    <div>
       <Container>
-        <NavBar />
-        <AccountForm /> 
-        <Profile />
-        <SearchFilter />
-        <BugsContainer />
-        <FishContainer />
-        <SeaCreaturesContainer />
+      {/* <Fragment> */}
+          <NavBar />
+          <Route path="/login" render={this.renderLoginForm} />
+          <Route path="/register" render={this.renderRegistrationForm}/> 
+          <Route path="/profile" component={Profile} />
+          <Route path="/critters/bugs" render={this.renderBugsContainer} />
+          <Route path="/critters/fish" render={this.renderFishContainer} />
+          <Route path="/critters/sea-creatures" render={this.renderSeaCreaturesContainer} />
+      {/* </Fragment> */}
       </Container>
-    </div>
-     )
->>>>>>> urgen
+     );
   }
 }
  
