@@ -1,6 +1,7 @@
 import React from 'react'
 import Fish from '../components/Fish'
 import SearchFilter from '../components/SearchFilter'
+import { Container } from 'semantic-ui-react';
 
 function FishContainer(props) {
 
@@ -109,11 +110,12 @@ function FishContainer(props) {
     }
 
     return ( 
-        <React.Fragment>
+        <Container className='form'>
+            <br></br>
             <SearchFilter filterAvailable={filterAvailable} filterCaught={filterCaught} searchTerm={searchTerm} handleChange={handleChange} />
             <br></br>
             {fishComponents()}
-        </React.Fragment>
+        </Container>
     )
 
 }

@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Container } from 'semantic-ui-react'
+import '../App.css';
 
 function RegistrationForm(props) {
 
@@ -18,17 +20,26 @@ function RegistrationForm(props) {
         props.handleRegister(userInfo)
     }
 
-    return (<form onSubmit={handleSubmit}>
+    return (
+    <Container>
+    <form onSubmit={handleSubmit} className='form'>
+        <br></br>
         <input name="username" value={username} onChange={(evt) => setUsername(evt.target.value)} type="text" placeholder="username" />
+        <br></br>
+        <br></br>
         <input name="password" value={password} onChange={(evt) => setPassword(evt.target.value)} type="text" placeholder="password" /> 
-        
+        <br></br>
+        <br></br>
         <input name="hemisphere" value="nh" onChange={(evt) => setHemisphere(evt.target.value)} id="nh" type="radio" />
         <label htmlFor="nh">Northern Hemisphere</label>
-
+        {' '}
         <input name="hemisphere" value="sh" onChange={(evt) => setHemisphere(evt.target.value)} id="sh" type="radio" />
         <label htmlFor="sh">Southern Hemisphere</label>
+        <br></br>
+        <br></br>
         <input type="submit"/>
-    </form>)
+    </form>
+    </Container>)
 }
  
 export default RegistrationForm

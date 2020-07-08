@@ -1,6 +1,7 @@
 import React from 'react'
 import Bug from '../components/Bug'
 import SearchFilter from '../components/SearchFilter'
+import { Container } from 'semantic-ui-react'
 
 function BugContainer(props) {
 
@@ -108,11 +109,12 @@ function BugContainer(props) {
     }
 
     return ( 
-        <React.Fragment>
+        <Container className='form'>
+            <br></br>
             <SearchFilter filterAvailable={filterAvailable} filterCaught={filterCaught} searchTerm={searchTerm} handleChange={handleChange} />
             <br></br>
             {bugComponents()}
-        </React.Fragment>
+        </Container>
     )
 }
  

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Container } from 'semantic-ui-react'
 
 const SeaCreature = (props) => {
     const { userSeaCreatures, seaCreature, handleCatch, userId } = props
