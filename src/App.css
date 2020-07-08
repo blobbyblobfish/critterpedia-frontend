@@ -49,4 +49,18 @@
     background-color: beige;
   }
 
+  .button {
+    border-radius: 50%;
+    background-color: rgba(152, 176, 255, 0.288); 
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
   

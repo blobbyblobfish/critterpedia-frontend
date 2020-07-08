@@ -2,13 +2,18 @@ import React from 'react'
 import { Container } from 'semantic-ui-react'
 
 function Profile(props) {
-    return (
-    <Container>
-    {/* <React.Fragment> */}
-        <p>{props.username}</p>
-    {/* </React.Fragment> */}
-    </Container>
-    )
+
+    const { username, id } = props.user
+
+    function handleDelete() {
+        fetch(`http://localhost:3000/users/${id}`, {method: "DELETE"})
+        .then(props.handleLogout)
+    }
+
+    return (<React.Fragment>
+        <p>{username}</p>
+        <button onClick={handleDelete}>Delete Account</button>
+    </React.Fragment>)
 }
  
 export default Profile
