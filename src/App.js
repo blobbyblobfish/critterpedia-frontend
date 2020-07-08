@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import './App.css';
+import React, {Component} from 'react'
+import './App.css'
 import { Container } from 'semantic-ui-react'
-import {Route, withRouter} from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 
 import BugsContainer from './containers/BugsContainer'
 import FishContainer from './containers/FishContainer'
@@ -111,7 +111,7 @@ class App extends Component {
       body: JSON.stringify(userInfo)
     })
       .then(r => r.json())
-      .then(this.handleResponse)
+      .then(this.handleLoginResponse)
   }
 
   handleResponse = (resp) => {

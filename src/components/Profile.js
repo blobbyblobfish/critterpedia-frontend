@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Container } from 'semantic-ui-react'
+import { confirmAlert } from 'react-confirm-alert'
 
 function Profile(props) {
 
@@ -21,6 +22,22 @@ function Profile(props) {
     useEffect(() => {
         setNewHemisphere(hemisphere)
     }, [hemisphere])
+
+    function renderConfirmAlert() {
+        confirmAlert({
+            title: 'Are you sure?',
+            message: 'This action cannot be undone.',
+            buttons: [
+              {
+                label: 'Yes',
+                onClick: handleDelete
+              },
+              {
+                label: 'No'
+              }
+            ]
+          })
+    }
 
     function handleDelete() {
         fetch(`http://localhost:3000/users/${id}`, {method: "DELETE"})
@@ -67,7 +84,7 @@ function Profile(props) {
             <label htmlFor="sh">Southern Hemisphere</label>
             <input type="submit" value="Update Account"/>
         </form>  
-        <button onClick={handleDelete}>Delete Account</button>
+        <button onClick={renderConfirmAlert}>Delete Account</button>
     </React.Fragment>)
 }
  
