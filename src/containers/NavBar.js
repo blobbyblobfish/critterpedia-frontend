@@ -2,18 +2,24 @@ import React from 'react'
 import '../App.css';
 import {NavLink} from 'react-router-dom'
 
-function NavBar() {
+function NavBar(props) {
 
     return (
-        <div className="navbar" >
-            <ul>
-                <NavLink href="#" to="/profile">Profile</NavLink>
-                <NavLink href="#" to="/critters/fish">Fish</NavLink> 
-                <NavLink href="#" to="/critters/bugs">Bugs</NavLink>
-                <NavLink href="#" to="/critters/sea-creatures">Sea Creatures</NavLink>
-                <NavLink href="#" to="/login">Login</NavLink>
-                <NavLink href="#" to="/register">Register</NavLink>
-            </ul> 
+        <div className="navbar">
+            <NavLink to="/critters/fish">Fish</NavLink>
+            <NavLink to="/critters/bugs">Bugs</NavLink>
+            <NavLink to="/critters/sea-creatures">Sea Creatures</NavLink>
+            {props.token
+                ?
+                <React.Fragment>
+                    <NavLink to="/profile">Profile</NavLink>
+                    <NavLink to="/logout">Logout</NavLink>
+                </React.Fragment>
+                :
+                <React.Fragment>
+                    <NavLink to="/login">Login</NavLink>
+                    <NavLink to="/register">Register</NavLink>
+                </React.Fragment>}
         </div>
     )
 }
