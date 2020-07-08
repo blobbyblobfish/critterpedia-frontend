@@ -4,8 +4,11 @@ import { Container } from 'semantic-ui-react'
 function Profile(props) {
 
     const { handlePatchUser, handleLogout } = props
-    const { username, hemisphere, id } = props.user
+    const { username, hemisphere, id, userCritters } = props.user
 
+    const userBugs = userCritters.filter(critterObj => critterObj.critter.category === "bug")
+    const userFish = userCritters.filter(critterObj => critterObj.critter.category === "fish")
+    const userSeaCreatures = userCritters.filter(critterObj => critterObj.critter.category === "sea_creature")
     const userHemisphere = hemisphere === "nh" ? "Northern" : "Southern"
 
     const [newUsername, setNewUsername] = useState(`${username}`)
@@ -47,11 +50,11 @@ function Profile(props) {
     return (
     <React.Fragment>
         <h4>{`Welcome, ${username}`}</h4>
-        <p>{`You are in the ${userHemisphere} Hemisphere`}</p>
         <h1>Stats: </h1>
-            <p>Bugs caught: </p>
-            <p>Fish caught: </p>
-            <p>Sea creatures caught: </p>
+            <p>{`${userBugs.length} Bugs out of 80`}</p>
+            <p>{`${userFish.length} Fish out of 80`}</p>
+            <p>{`${userSeaCreatures.length} Sea Creatures out of 40`}</p>
+            <p>{`You are in the ${userHemisphere} Hemisphere.`}</p>
         <h1>Update Account: </h1>
         <form onSubmit={handleSubmit}>
             <label htmlFor="username">Username</label>
