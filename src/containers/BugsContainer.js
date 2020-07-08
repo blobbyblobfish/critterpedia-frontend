@@ -4,7 +4,7 @@ import SearchFilter from '../components/SearchFilter'
 
 function BugContainer(props) {
 
-    const { bugs, userBugs, hemisphere, userId, searchTerm, handleCatch, handleChange, filterAvailable, filterCaught } = props
+    const { bugs, userBugs, hemisphere, userId, searchTerm, handleCatch, handleRelease, handleChange, filterAvailable, filterCaught } = props
     const currentDate = new Date()
     const currentMonth = currentDate.getMonth() + 1
     const currentHour = currentDate.getHours()
@@ -19,29 +19,29 @@ function BugContainer(props) {
             if (filterAvailable === "Available") {
                 if (hemisphere === "nh") {
                     bugsArray = bugsArray.filter(bug => bug.nh_available_months.includes(currentMonth) && bug.available_times.includes(currentHour))
-                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} />)
+                    return bugsArray.map(bug => <Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
                 }
 
                 if (hemisphere === "sh") {
                     bugsArray = bugsArray.filter(bug => bug.sh_available_months.includes(currentMonth) && bug.available_times.includes(currentHour))
-                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} />)
+                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
                 }
             }
 
             else if (filterAvailable === "Unavailable") {
                 if (hemisphere === "nh") {
                     bugsArray = bugsArray.filter(bug => !bug.nh_available_months.includes(currentMonth) || !bug.available_times.includes(currentHour))
-                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} />)
+                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
                 }
 
                 if (hemisphere === "sh") {
                     bugsArray = bugsArray.filter(bug => !bug.sh_available_months.includes(currentMonth) || !bug.available_times.includes(currentHour))
-                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} />)
+                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
                 }
             }
 
             else {
-                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} />)
+                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
             }
         }
 
@@ -51,59 +51,59 @@ function BugContainer(props) {
             if (filterAvailable === "Available") {
                 if (hemisphere === "nh") {
                     bugsArray = bugsArray.filter(bug => bug.nh_available_months.includes(currentMonth) && bug.available_times.includes(currentHour))
-                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} />)
+                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
                 }
 
                 if (hemisphere === "sh") {
                     bugsArray = bugsArray.filter(bug => bug.sh_available_months.includes(currentMonth) && bug.available_times.includes(currentHour))
-                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} />)
+                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
                 }
             }
 
             else if (filterAvailable === "Unavailable") {
                 if (hemisphere === "nh") {
                     bugsArray = bugsArray.filter(bug => !bug.nh_available_months.includes(currentMonth) || !bug.available_times.includes(currentHour))
-                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} />)
+                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
                 }
 
                 if (hemisphere === "sh") {
                     bugsArray = bugsArray.filter(bug => !bug.sh_available_months.includes(currentMonth) || !bug.available_times.includes(currentHour))
-                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} />)
+                    return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
                 }
             }
 
             else {
-                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} />)
+                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
             }
         }
 
         if (filterAvailable === "Available") {
             if (hemisphere === "nh") {
                 bugsArray = bugsArray.filter(bug => bug.nh_available_months.includes(currentMonth) && bug.available_times.includes(currentHour))
-                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} />)
+                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
             }
 
             if (hemisphere === "sh") {
                 bugsArray = bugsArray.filter(bug => bug.sh_available_months.includes(currentMonth) && bug.available_times.includes(currentHour))
-                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} />)
+                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
             }
         }
 
         if (filterAvailable === "Unavailable") {
             if (hemisphere === "nh") {
                 bugsArray = bugsArray.filter(bug => !bug.nh_available_months.includes(currentMonth) || !bug.available_times.includes(currentHour))
-                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} />)
+                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
             }
 
             if (hemisphere === "sh") {
                 bugsArray = bugsArray.filter(bug => !bug.sh_available_months.includes(currentMonth) || !bug.available_times.includes(currentHour))
-                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} />)
+                return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
             }
         }
 
 
         if (filterAvailable === "All" && filterCaught === "All") {
-            return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} />)
+            return bugsArray.map(bug =><Bug key={bug.id} bug={bug} userId={userId} userBugs={userBugs} handleCatch={handleCatch} handleRelease={handleRelease}/>)
         }
     }
 

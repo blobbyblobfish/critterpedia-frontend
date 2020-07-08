@@ -24,7 +24,6 @@ class App extends Component {
     user: {
       id: 0,
       username: "",
-      password: "",
       hemisphere: "",
       userCritters: []
     }
@@ -64,6 +63,15 @@ class App extends Component {
     this.setState((prevState) => {return {
       user: {
         userCritters: [...prevState.user.userCritters, userCritter]
+      }
+    }})
+  }
+
+  handleRelease = (userCritter) => {
+    this.setState((prevState) => {
+      return {
+      user: {
+        userCritters: prevState.user.userCritters.filter(critter => critter.critter.name !== userCritter.critter.name)
       }
     }})
   }
@@ -139,12 +147,20 @@ class App extends Component {
     }
   }
 
+  handleUpdateUser = (evt) => {
+    this.setState({
+      user: {
+        [evt.target.name]: [evt.target.value]
+      }
+    })
+  }
+
   renderBugsContainer = () => {
     const userBugs = this.state.user.userCritters.filter(critterObj => {return critterObj.critter.category === "bug"})
     return <BugsContainer bugs={this.state.bugs} userBugs={userBugs}
       searchTerm={this.state.searchTerm} handleChange={this.handleChange}
-      userId={this.state.user.id} handleCatch={this.handleCatch}
-      hemisphere={this.state.user.hemisphere}
+      userId={this.state.user.id} hemisphere={this.state.user.hemisphere}
+      handleCatch={this.handleCatch} handleRelease={this.handleRelease}
       filterAvailable={this.state.filterAvailable} filterCaught={this.state.filterCaught}
     />
   }
@@ -153,8 +169,8 @@ class App extends Component {
     const userFish = this.state.user.userCritters.filter(critterObj => {return critterObj.critter.category === "fish"})
     return <FishContainer fish={this.state.fish} userFish={userFish}
       searchTerm={this.state.searchTerm} handleChange={this.handleChange} 
-      userId={this.state.user.id} handleCatch={this.handleCatch}
-      hemisphere={this.state.user.hemisphere}
+      userId={this.state.user.id} hemisphere={this.state.user.hemisphere}
+      handleCatch={this.handleCatch} handleRelease={this.handleRelease}
       filterAvailable={this.state.filterAvailable} filterCaught={this.state.filterCaught}
     />
   }
@@ -163,8 +179,8 @@ class App extends Component {
     const userSeaCreatures = this.state.user.userCritters.filter(critterObj => {return critterObj.critter.category === "sea_creature"})
     return <SeaCreaturesContainer seaCreatures={this.state.seaCreatures} userSeaCreatures={userSeaCreatures}
       searchTerm={this.state.searchTerm} handleChange={this.handleChange} 
-      userId={this.state.user.id} handleCatch={this.handleCatch}
-      hemisphere={this.state.user.hemisphere}
+      userId={this.state.user.id} hemisphere={this.state.user.hemisphere}
+      handleCatch={this.handleCatch} handleRelease={this.handleRelease}
       filterAvailable={this.state.filterAvailable} filterCaught={this.state.filterCaught}
     />
   }
@@ -178,7 +194,9 @@ class App extends Component {
   }
 
   renderProfile = () => {
-    return localStorage.token ? <Profile user={this.state.user} handleLogout={this.handleLogout}/> : this.props.history.push("/login")
+    return localStorage.token ?
+      <Profile user={this.state.user} handleLogout={this.handleLogout} handleUpdateUser={this.handleUpdateUser} />
+      : this.props.history.push("/login")
   }
 
   render() { 
