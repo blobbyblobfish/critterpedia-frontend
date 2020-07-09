@@ -38,8 +38,10 @@ const Bug = (props) => {
         }
     }
 
-    return (<div className="critter">
+    return (
+    <div className="critter">
         <img src={bug.img_url} alt={bug.name}/>
+        <br></br>
         <p>{bug.name}</p>
         {renderButtons()}
     </div> )

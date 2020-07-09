@@ -1,4 +1,5 @@
 import React from 'react'
+import { Container } from 'semantic-ui-react'
 
 const Fish = (props) => {
     const { userFishes, fish, handleCatch, handleRelease, userId } = props
@@ -37,8 +38,10 @@ const Fish = (props) => {
         }
     }
 
-    return (<div className="critter">
+    return (
+    <div className="critter">
         <img src={fish.img_url} alt={fish.name}/>
+        <br></br>
         <p>{fish.name}</p>
         {renderButtons()}
     </div> )

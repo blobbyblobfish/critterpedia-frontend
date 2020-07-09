@@ -38,8 +38,10 @@ const SeaCreature = (props) => {
         }
     }
 
-    return (<div className="critter">
+    return (
+    <div className="critter">
         <img src={seaCreature.img_url} alt={seaCreature.name}/>
+        <br></br>
         <p>{seaCreature.name}</p>
         {renderButtons()}
     </div> )
