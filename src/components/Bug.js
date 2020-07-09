@@ -33,17 +33,19 @@ const Bug = (props) => {
 
     function renderButtons() {
         if (localStorage.token) {
-            if (!userBug) { return <button onClick={handleClickCatch}>Catch</button> }
-            else { return <button onClick={handleClickRelease}>Release</button> }
+            if (!userBug) { return <button onClick={handleClickCatch} className='catch'><b>Catch</b></button> }
+            else { return <button onClick={handleClickRelease} className='caught'><b>Caught</b></button> }
         }
     }
 
     return (
     <div className="critter">
-        <img src={bug.img_url} alt={bug.name}/>
-        <br></br>
-        <p>{bug.name}</p>
-        {renderButtons()}
+        <div className='item'>
+            <img src={bug.img_url} alt={bug.name}/>
+            <br></br>
+            <p>{bug.name}</p>
+            {renderButtons()}
+        </div>
     </div> )
 }
  

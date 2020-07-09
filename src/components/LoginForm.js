@@ -27,7 +27,8 @@ function LoginForm(props) {
         <br></br>
         <input name="password" value={password} onChange={(evt) => setPassword(evt.target.value)} type="password" placeholder="password" /> 
         <br></br>
-        <input type="submit" className='button'/>
+        <br></br>
+        <input type="submit" className='submit'/>
     </form>
     </Container> );
     

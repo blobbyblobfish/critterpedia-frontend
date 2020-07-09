@@ -37,7 +37,7 @@ function RegistrationForm(props) {
         <label htmlFor="sh">Southern Hemisphere</label>
         <br></br>
         <br></br>
-        <input type="submit"/>
+        <input type="submit" className='submit'/>
     </form>
     </Container>)
 }
