@@ -63,4 +63,8 @@
     cursor: pointer;
   }
 
+  .audio {
+    max-width: 40px;
+  }
+
   
