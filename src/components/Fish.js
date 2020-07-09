@@ -33,17 +33,19 @@ const Fish = (props) => {
 
     function renderButtons() {
         if (localStorage.token) {
-            if (!userFish) { return <button onClick={handleClickCatch}>Catch</button> }
-            else { return <button onClick={handleClickRelease}>Release</button> }
+            if (!userFish) { return <button onClick={handleClickCatch} className='catch'><b>Catch</b></button> }
+            else { return <button onClick={handleClickRelease} className='caught'><b>Caught</b></button> }
         }
     }
 
     return (
     <div className="critter">
-        <img src={fish.img_url} alt={fish.name}/>
-        <br></br>
-        <p>{fish.name}</p>
-        {renderButtons()}
+        <div className='item'>
+            <img src={fish.img_url} alt={fish.name}/>
+            <br></br>
+            <p>{fish.name}</p>
+            {renderButtons()}
+        </div>
     </div> )
 }
  

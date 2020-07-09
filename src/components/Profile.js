@@ -66,25 +66,32 @@ function Profile(props) {
 
     return (
     <React.Fragment>
-        <h4>{`Welcome, ${username}`}</h4>
-        <h1>Stats: </h1>
-            <p>{`${userBugs.length} Bugs out of 80`}</p>
-            <p>{`${userFish.length} Fish out of 80`}</p>
-            <p>{`${userSeaCreatures.length} Sea Creatures out of 40`}</p>
-            <p>{`You are in the ${userHemisphere} Hemisphere.`}</p>
-        <h1>Update Account: </h1>
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username</label>
-            <input name="username" value={newUsername} onChange={(evt) => setNewUsername(evt.target.value)} id="username" type="text"/>
-                
-            <input name="hemisphere" value="nh" onChange={(evt) => setNewHemisphere(evt.target.value)} id="nh" type="radio" checked={newHemisphere === "nh"}/>
-            <label htmlFor="nh">Northern Hemisphere</label>
-
-            <input name="hemisphere" value="sh" onChange={(evt) => setNewHemisphere(evt.target.value)} id="sh" type="radio" checked={newHemisphere === "sh"}/>
-            <label htmlFor="sh">Southern Hemisphere</label>
-            <input type="submit" value="Update Account"/>
-        </form>  
-        <button onClick={renderConfirmAlert}>Delete Account</button>
+        <div className='form'>
+            <br></br>
+            <h4>{`Welcome, ${username}!`}</h4>
+            <h1>Stats: </h1>
+                <p>{`${userBugs.length} Bugs out of 80`}</p>
+                <p>{`${userFish.length} Fish out of 80`}</p>
+                <p>{`${userSeaCreatures.length} Sea Creatures out of 40`}</p>
+                <p>{`You are in the ${userHemisphere} Hemisphere.`}</p>
+            <h1>Update Account: </h1>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="username">Username </label>
+                <input name="username" value={newUsername} onChange={(evt) => setNewUsername(evt.target.value)} id="username" type="text"/>
+                <br></br>
+                <br></br>
+                <input name="hemisphere" value="nh" onChange={(evt) => setNewHemisphere(evt.target.value)} id="nh" type="radio" checked={newHemisphere === "nh"}/>
+                <label htmlFor="nh">Northern Hemisphere</label>
+                {' '}
+                <input name="hemisphere" value="sh" onChange={(evt) => setNewHemisphere(evt.target.value)} id="sh" type="radio" checked={newHemisphere === "sh"}/>
+                <label htmlFor="sh">Southern Hemisphere</label>
+                <br></br>
+                <br></br>
+                <input type="submit" value="Update Account" /> 
+            </form>  
+            <br></br>
+            <button onClick={renderConfirmAlert}>Delete Account</button>
+        </div>
     </React.Fragment>)
 }
  
