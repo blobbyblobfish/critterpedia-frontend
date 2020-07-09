@@ -4,7 +4,9 @@ function SearchFilter(props) {
 
     const { searchTerm, handleChange, filterAvailable, filterCaught } = props
 
-    return (<div className="search-filter">
+    return (
+    <div className="search-filter">
+       
         <input type="text" name="searchTerm" value={searchTerm} onChange={handleChange} placeholder="Search by name" />
         
         <label htmlFor="available">Filter by availability: </label>

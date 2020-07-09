@@ -13,7 +13,7 @@
     text-decoration: none ;
     font-size: 22px;
     font-family: Comic Sans MS;
-    width: 16.66%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: center; /* If you want the text to be centered */
     display: block
   }
@@ -41,16 +41,19 @@
   .form {
       text-align: center;
       border: beige;
+      border-radius: 12px;
       background-color: rgba(255, 228, 196, 0.137);
       width: 100%;
+      width: 500px;
+      margin: auto;
     }
   
   .form input[type=text]:focus {
     background-color: beige;
   }
 
-  .button {
-    background-color: rgba(152, 176, 255, 0.288); /* Green */
+  .button:hover {
+    background-color: rgba(116, 148, 255, 0.548); /* Green */
     border: none;
     color: white;
     padding: 20px;
@@ -60,7 +63,64 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 12px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 20px 50px 0 rgba(0, 0, 0, 0.644);
+  }
+
+  .grid-container {
+    display: inline-grid;
+    background-color: rgba(33, 149, 243, 0.007);
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid beige;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    grid-template-columns: repeat( auto-fit, minmax(250px, 0fr) );
+  }
+
+  .item {
+    align-self: center;
+  }
+
+
+  .search-filter {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    width: 200px;
+  }
+  
+  .search-filter > li > a {
+    background: #000;
+    color: #fff;
+    display: block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .search-filter ul {
+    background: #ddd;
+    height: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    transition: all .5s ease;
+    top: 35px;
+    width: 100%;
+  }
+  
+  .search-filter li:hover ul {
+    height: 200px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .search-filter ul a {
+    color: #000;
+    display: block;
+    padding: 5px 20px;
   }
 
   

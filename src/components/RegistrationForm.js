@@ -32,7 +32,7 @@ function RegistrationForm(props) {
         <br></br>
         <input name="hemisphere" value="nh" onChange={(evt) => setHemisphere(evt.target.value)} id="nh" type="radio" />
         <label htmlFor="nh">Northern Hemisphere</label>
-
+        {' '}
         <input name="hemisphere" value="sh" onChange={(evt) => setHemisphere(evt.target.value)} id="sh" type="radio" />
         <label htmlFor="sh">Southern Hemisphere</label>
         <br></br>

@@ -25,10 +25,12 @@ const Bug = (props) => {
             .then(json => handleCatch(json))
     }
 
-    return (<div className="critter">
+    return (
+    <div className="grid-container">
         <img src={bug.img_url} alt={bug.name}/>
+        <br></br>
         <p>{bug.name}</p>
-        {userBug.length === 0 ? <button onClick={handleClick}>Catch</button> : <p>Caught!</p>}
+        {userBug.length === 0 ? <button onClick={handleClick} className='button'>Catch</button> : <p>Caught!</p>}
     </div> )
 }
  

@@ -25,10 +25,12 @@ const SeaCreature = (props) => {
             .then(json => handleCatch(json))
     }
 
-    return (<div className="critter">
+    return (
+    <div className="grid-container">
         <img src={seaCreature.img_url} alt={seaCreature.name}/>
+        <br></br>
         <p>{seaCreature.name}</p>
-        {userSeaCreature.length === 0 ? <button onClick={handleClick}>Catch</button> : <p>Caught!</p>}
+        {userSeaCreature.length === 0 ? <button onClick={handleClick} className='button'>Catch</button> : <p>Caught!</p>}
     </div> )
 }
  
