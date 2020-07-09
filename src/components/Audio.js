@@ -42,7 +42,7 @@ function Audio(props) {
     function returnAudio() {
         if (props.enabled) return <audio controls autoPlay loop hidden>
             {/* <source src={this.getCurrentSong()}/> */}
-            {/* <source src={`http://acnhapi.com/v1/hourly/${randomSong()}`}/> */}
+            <source src={`http://acnhapi.com/v1/hourly/${randomSong()}`}/>
         </audio>
     }
 
