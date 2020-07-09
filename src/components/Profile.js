@@ -94,10 +94,10 @@ function Profile(props) {
                 <label htmlFor="sh">Southern Hemisphere</label>
                 <br></br>
                 <br></br>
-                <input type="submit" value="Update Account"/> 
+                <input type="submit" value="Update Account" className='update'/>
             </form>  
             <br></br>
-            <button onClick={renderConfirmAlert}>Delete Account</button>
+            <button onClick={renderConfirmAlert} className='delete'>Delete Account</button>
         </div>
     </React.Fragment>)
 }

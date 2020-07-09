@@ -11,11 +11,11 @@
   .navbar a {
     float: left;
     padding: 10px;
-    color: rgb(0, 0, 0);
+    color: rgba(0, 0, 0, 0.897);
     text-decoration: none ;
     font-size: 22px;
     font-family: Comic Sans MS;
-    width: 16.6%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    width: 16.66%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: center; /* If you want the text to be centered */
     display: block
   }
@@ -49,6 +49,7 @@
       width: 100%;
       width: 500px;
       margin: auto;
+      margin-bottom: 100px;
       /* background-image: linear-gradient(rgba(255, 255, 255, 0.336), rgba(252, 0, 0, 0.205)); */
       background-image: linear-gradient( to bottom right, rgba(255, 255, 0, 0.055), rgba(50, 38, 107, 0.411));
     }
@@ -61,6 +62,18 @@
     border: none;
     border-radius: 10px;
     background-color: rgba(184, 221, 184, 0.664); 
+  }
+
+  .update {
+    border: 2px solid rgb(52, 98, 136);
+    border-radius: 10px;
+    background-color: rgba(52, 98, 136, 0.377); 
+  }
+  
+  .delete {
+    border: 2px solid rgb(85, 0, 0);
+    border-radius: 10px;
+    background-color: rgba(255, 0, 0, 0.377); 
   }
   
   .catch {
@@ -77,7 +90,7 @@
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 10px;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 20px 50px 0 rgba(0, 0, 0, 0.644);
+    box-shadow: 0 12px 16px 0 rgb(83, 0, 0),0 20px 50px 0 rgb(51, 0, 0);
   }
   .catch:hover {background-color: #2600fd48}
 
@@ -87,8 +100,8 @@
     /* background-color: rgba(93, 130, 252, 0.76); */
     /* background-color: rgba(54, 155, 76, 0.76);  */
     /* background-color: rgb(152, 162, 255);  */
-    border: 2px solid grey;
-    color: rgb(73, 73, 73);
+    border: 2px solid rgb(102, 102, 102);
+    color: rgb(59, 59, 59);
     padding: 20px;
     text-align: center;
     text-decoration: none;
@@ -97,6 +110,7 @@
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 10px;
+    background-color: rgba(51, 51, 51, 0.384);
     /* box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 20px 50px 0 rgba(0, 0, 0, 0.733); */
   }
   /* .caught:hover {background-color: rgba(52, 51, 54, 0.377)} */
@@ -161,5 +175,3 @@
   .audio {
     max-width: 40px;
   }
-
-  
