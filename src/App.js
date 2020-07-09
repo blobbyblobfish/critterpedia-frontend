@@ -15,6 +15,7 @@ import RegistrationForm from './components/RegistrationForm'
 class App extends Component {
 
   state = {
+    audioEnabled: true,
     bugs: [],
     fish: [],
     seaCreatures: [],
@@ -49,7 +50,7 @@ class App extends Component {
       }))
     
     if (localStorage.token) {
-      fetch("http://localhost:3000/users/stay_logged_in",{
+      fetch(`http://localhost:3000/users/stay_logged_in`, {
         headers: {
           "Authorization": localStorage.token
         }
@@ -201,10 +202,18 @@ class App extends Component {
       : this.props.history.push("/login")
   }
 
+  toggleAudio = () => {
+    this.setState((prevState) => {
+      return {
+        audioEnabled: !prevState.audioEnabled
+      }
+    })
+  }
+
   render() { 
     return ( 
       <Container>
-        <NavBar token={localStorage.token}/>
+        <NavBar toggleAudio={this.toggleAudio} enabled={this.state.audioEnabled} />
         <Route path="/login" render={this.renderLoginForm} />
         <Route path="/register" render={this.renderRegistrationForm} /> 
         <Route path="/profile" render={this.renderProfile} />
