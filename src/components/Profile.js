@@ -40,12 +40,22 @@ function Profile(props) {
     }
 
     function handleDelete() {
-        fetch(`http://localhost:3000/users/${id}`, {method: "DELETE"})
-        .then(handleLogout)
+        fetch(`http://localhost:3000/users/${id}`, { method: "DELETE" })
+            .then(resp => resp.json())
+            .then(handleLogout)
     }
 
     function handleSubmit(evt) {
         evt.preventDefault()
+
+        const newUserObj = {
+            user: {
+                id: id,
+                username: newUsername,
+                hemisphere: newHemisphere,
+                userCritters: userCritters,
+            }
+        }
 
         const configObj = {
             method: "PATCH",
@@ -53,15 +63,12 @@ function Profile(props) {
                 "content-type": "application/json",
                 "authorization": localStorage.token
             },
-            body: JSON.stringify({
-                username: newUsername,
-                hemisphere: newHemisphere
-            })
+            body: JSON.stringify(newUserObj)
         }
         
         fetch(`http://localhost:3000/users/${id}`, configObj)
             .then(resp => resp.json())
-            .then(json => handlePatchUser(json))
+            .then(() => handlePatchUser(newUserObj["user"]))
     }
 
     return (
@@ -87,7 +94,7 @@ function Profile(props) {
                 <label htmlFor="sh">Southern Hemisphere</label>
                 <br></br>
                 <br></br>
-                <input type="submit" value="Update Account" /> 
+                <input type="submit" value="Update Account"/> 
             </form>  
             <br></br>
             <button onClick={renderConfirmAlert}>Delete Account</button>

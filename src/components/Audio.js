@@ -42,17 +42,17 @@ function Audio(props) {
     function returnAudio() {
         if (props.enabled) return <audio controls autoPlay loop hidden>
             {/* <source src={this.getCurrentSong()}/> */}
-            <source src={`http://acnhapi.com/v1/hourly/${randomSong()}`}/>
+            {/* <source src={`http://acnhapi.com/v1/hourly/${randomSong()}`}/> */}
         </audio>
     }
 
     function returnButton() {
         if (props.enabled) {
-            return <img className="audio" src="https://static.thenounproject.com/png/3266982-200.png" onClick={props.toggleAudio}/>
+            return <img className="audio" alt="pause button" src="https://static.thenounproject.com/png/3266982-200.png" onClick={props.toggleAudio}/>
         }
         
         else {
-            return <img className="audio" src="https://static.thenounproject.com/png/2715729-200.png" onClick={props.toggleAudio}/>
+            return <img className="audio" alt="play button" src="https://static.thenounproject.com/png/2715729-200.png" onClick={props.toggleAudio}/>
         }
     }
 
