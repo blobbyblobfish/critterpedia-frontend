@@ -13,7 +13,7 @@
     text-decoration: none ;
     font-size: 22px;
     font-family: Comic Sans MS;
-    width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    width: 16.6%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: center; /* If you want the text to be centered */
     display: block
   }
