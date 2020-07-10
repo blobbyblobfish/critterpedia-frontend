@@ -92,11 +92,12 @@ function Profile(props) {
             {confirmAlert ? <div>
                 <h4>Are you sure?</h4>
                 <p>This action cannot be undone.</p>
-                <button onClick={handleDelete}>Yes</button>
-                <button onClick={cancelDelete}>No</button>
+                <button onClick={handleDelete} className='yes'>Yes</button>
+                {' '}
+                <button onClick={cancelDelete} className='no'>No</button>
             </div>
             :
-            <button onClick={renderConfirmAlert}>Delete Account</button>}
+            <button className='delete' onClick={renderConfirmAlert}>Delete Account</button>}
         </div>
     </React.Fragment>)
 }

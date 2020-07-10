@@ -80,6 +80,22 @@
   
   .delete:hover {background-color:  rgba(107, 31, 31, 0.726)}
 
+  .yes {
+    border: 2px solid rgb(85, 0, 0);
+    border-radius: 10px;
+    background-color: rgba(255, 0, 0, 0.377); 
+  }
+  
+  .yes:hover {background-color:  rgba(107, 31, 31, 0.726)}
+
+  .no {
+    border: 2px solid rgb(92, 180, 252);
+    border-radius: 10px;
+    background-color: rgba(93, 182, 255, 0.438); 
+  }
+
+  .no:hover {background-color: rgba(66, 144, 207, 0.904)}
+
   .catch {
     /* background-color: rgba(116, 148, 255, 0.548); */
     /* background-color: rgba(116, 255, 146, 0.76);  */
