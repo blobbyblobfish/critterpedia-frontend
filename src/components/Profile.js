@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Container } from 'semantic-ui-react'
-import { confirmAlert } from 'react-confirm-alert'
 
 function Profile(props) {
 
@@ -14,6 +13,7 @@ function Profile(props) {
 
     const [newUsername, setNewUsername] = useState(`${username}`)
     const [newHemisphere, setNewHemisphere] = useState("")
+    const [confirmAlert, setConfirmAlert] = useState(false)
 
     useEffect(() => {
         setNewUsername(username)
@@ -23,26 +23,18 @@ function Profile(props) {
         setNewHemisphere(hemisphere)
     }, [hemisphere])
 
-    function renderConfirmAlert() {
-        confirmAlert({
-            title: 'Are you sure?',
-            message: 'This action cannot be undone.',
-            buttons: [
-              {
-                label: 'Yes',
-                onClick: handleDelete
-              },
-              {
-                label: 'No'
-              }
-            ]
-          })
-    }
-
     function handleDelete() {
         fetch(`http://localhost:3000/users/${id}`, { method: "DELETE" })
             .then(resp => resp.json())
             .then(handleLogout)
+    }
+
+    function cancelDelete() {
+        setConfirmAlert(false)
+    }
+
+    function renderConfirmAlert() {
+        setConfirmAlert(true)
     }
 
     function handleSubmit(evt) {
@@ -71,7 +63,7 @@ function Profile(props) {
             .then(() => handlePatchUser(newUserObj["user"]))
     }
 
-    return (
+    return (        
     <React.Fragment>
         <div className='form'>
             <br></br>
@@ -97,7 +89,14 @@ function Profile(props) {
                 <input type="submit" value="Update Account" className='update'/>
             </form>  
             <br></br>
-            <button onClick={renderConfirmAlert} className='delete'>Delete Account</button>
+            {confirmAlert ? <div>
+                <h4>Are you sure?</h4>
+                <p>This action cannot be undone.</p>
+                <button onClick={handleDelete}>Yes</button>
+                <button onClick={cancelDelete}>No</button>
+            </div>
+            :
+            <button onClick={renderConfirmAlert}>Delete Account</button>}
         </div>
     </React.Fragment>)
 }
