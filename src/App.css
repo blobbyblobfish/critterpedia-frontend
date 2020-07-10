@@ -69,13 +69,17 @@
     border-radius: 10px;
     background-color: rgba(52, 98, 136, 0.377); 
   }
-  
+
+  .update:hover {background-color: rgba(40, 93, 136, 0.63)}
+
   .delete {
     border: 2px solid rgb(85, 0, 0);
     border-radius: 10px;
     background-color: rgba(255, 0, 0, 0.377); 
   }
   
+  .delete:hover {background-color:  rgba(107, 31, 31, 0.726)}
+
   .catch {
     /* background-color: rgba(116, 148, 255, 0.548); */
     /* background-color: rgba(116, 255, 146, 0.76);  */

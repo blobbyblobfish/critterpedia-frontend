@@ -48,11 +48,11 @@ function Audio(props) {
 
     function returnButton() {
         if (props.enabled) {
-            return <img className="audio" src="https://static.thenounproject.com/png/3266982-200.png" onClick={props.toggleAudio}/>
+            return <img className="audio" alt="pause button" src="https://static.thenounproject.com/png/3266982-200.png" onClick={props.toggleAudio}/>
         }
         
         else {
-            return <img className="audio" src="https://static.thenounproject.com/png/2715729-200.png" onClick={props.toggleAudio}/>
+            return <img className="audio" alt="play button" src="https://static.thenounproject.com/png/2715729-200.png" onClick={props.toggleAudio}/>
         }
     }
 

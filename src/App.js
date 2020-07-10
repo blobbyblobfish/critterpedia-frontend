@@ -140,6 +140,7 @@ class App extends Component {
 
       this.setState({
         user: {
+          id: resp.user.id,
           username: resp.user.username,
           hemisphere: resp.user.hemisphere,
           userCritters: resp.user.user_critters
@@ -152,7 +153,7 @@ class App extends Component {
     }
   }
 
-  handlePatchUser = (user) => {
+  handlePatchUser = (user) => {    
     this.setState({
       user: user
     })
@@ -209,7 +210,7 @@ class App extends Component {
       }
     })
   }
-
+  
   render() { 
     return ( 
       <Container>
