@@ -15,7 +15,10 @@ Critterpedia is a web app that allows Nintendo Animal Crossing New Horizons enth
 * Rails API backend. PostgreSQL database.
   * ACNH API (http://acnhapi.com/), Active Model Serializers, bcrypt, JWT, Rack CORS, dotenv.
   
-### Repositories.
+### Access
+https://critterpedia-frontend.herokuapp.com/
+##### Repositories
 - You are reading this on the frontend README.
 - [Link to backend](https://github.com/blobbyblobfish/critterpedia-backend/)
 
+Built by @blobbyblobfish Alice Wang (React/Rails) and @Urgensherpa28 Urgen Sherpa (HTML/CSS)
