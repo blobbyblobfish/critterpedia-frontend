@@ -24,7 +24,7 @@ function Profile(props) {
     }, [hemisphere])
 
     function handleDelete() {
-        fetch(`http://localhost:3000/users/${id}`, { method: "DELETE" })
+        fetch(`https://critterpedia-backend.herokuapp.com/users/${id}`, { method: "DELETE" })
             .then(resp => resp.json())
             .then(handleLogout)
     }
@@ -58,7 +58,7 @@ function Profile(props) {
             body: JSON.stringify(newUserObj)
         }
         
-        fetch(`http://localhost:3000/users/${id}`, configObj)
+        fetch(`https://critterpedia-backend.herokuapp.com/users/${id}`, configObj)
             .then(resp => resp.json())
             .then(() => handlePatchUser(newUserObj["user"]))
     }

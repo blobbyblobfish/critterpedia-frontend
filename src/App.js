@@ -31,26 +31,26 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3000/critters/bugs`)
+    fetch(`https://critterpedia-backend.herokuapp.com/critters/bugs`)
       .then(resp => resp.json())
       .then(json => this.setState({
         bugs: json
       }))
     
-      fetch(`http://localhost:3000/critters/fish`)
+      fetch(`https://critterpedia-backend.herokuapp.com/critters/fish`)
       .then(resp => resp.json())
       .then(json => this.setState({
         fish: json
       }))
     
-      fetch(`http://localhost:3000/critters/sea-creatures`)
+      fetch(`https://critterpedia-backend.herokuapp.com/critters/sea-creatures`)
       .then(resp => resp.json())
       .then(json => this.setState({
         seaCreatures: json
       }))
     
     if (localStorage.token) {
-      fetch(`http://localhost:3000/users/stay_logged_in`, {
+      fetch(`https://critterpedia-backend.herokuapp.com/users/stay_logged_in`, {
         headers: {
           "Authorization": localStorage.token
         }
@@ -85,7 +85,7 @@ class App extends Component {
   }
 
   handleLogin = (userInfo) => {
-    fetch("http://localhost:3000/users/login", {
+    fetch("https://critterpedia-backend.herokuapp.com/users/login", {
       method: "POST",
       headers: {
         "content-type": "application/json"
@@ -104,7 +104,7 @@ class App extends Component {
   }
 
   handleRegister = (userInfo) => {
-    fetch("http://localhost:3000/users", {
+    fetch("https://critterpedia-backend.herokuapp.com/users", {
       method: "POST",
       headers: {
         "content-type": "application/json"

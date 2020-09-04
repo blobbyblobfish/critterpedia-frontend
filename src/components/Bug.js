@@ -20,13 +20,13 @@ const Bug = (props) => {
             body: JSON.stringify(newUserCritter)
         }
 
-        fetch(`http://localhost:3000/user-critters`, configObj)
+        fetch(`https://critterpedia-backend.herokuapp.com/user-critters`, configObj)
             .then(resp => resp.json())
             .then(json => handleCatch(json))
     }
 
     function handleClickRelease() {
-        fetch(`http://localhost:3000/user-critters/${userBug.id}`, { method: "DELETE" })
+        fetch(`https://critterpedia-backend.herokuapp.com/user-critters/${userBug.id}`, { method: "DELETE" })
             .then(resp => resp.json())
             .then(json => handleRelease(json))
     }
