@@ -12,7 +12,7 @@ function BugContainer(props) {
 
     function bugComponents() {
         const userBugNames = userBugs.map(critterObj => critterObj.critter.name)
-        let bugsArray = bugs.filter(bug => bug.name.startsWith(searchTerm))
+        let bugsArray = bugs.filter(bug => bug.name.includes(searchTerm))
 
         if (filterCaught === "Caught") {
             bugsArray = userBugs.map(critterObj => critterObj.critter).filter(bug => bug.name.startsWith(searchTerm))

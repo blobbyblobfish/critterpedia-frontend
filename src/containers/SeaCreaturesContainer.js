@@ -12,7 +12,7 @@ function SeaCreaturesContainer(props) {
 
     function seaCreatureComponents() {
         const userSeaCreatureNames = userSeaCreatures.map(critterObj => critterObj.critter.name)
-        let seaCreaturesArray = seaCreatures.filter(seaCreature => seaCreature.name.startsWith(searchTerm))
+        let seaCreaturesArray = seaCreatures.filter(seaCreature => seaCreature.name.includes(searchTerm))
 
         if (filterCaught === "Caught") {
             seaCreaturesArray = userSeaCreatures.map(critterObj => critterObj.critter).filter(seaCreature => seaCreature.name.startsWith(searchTerm))
